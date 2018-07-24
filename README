@@ -1,0 +1,9 @@
+`Openshifter' is an experimental design study to figure out how microservice-based applications can and should be migrated in various forms.
+
+The implementation is based on OpenShift, hence the (slightly non-creative and trademark-offensive) name.
+
+First steps:
+* first term  → python3 openshifter.py
+* second term → sh testclient.sh
+
+Note: !!! purposeful insecure design during prototyping phase !!!
