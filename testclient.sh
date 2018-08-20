@@ -18,3 +18,7 @@ curl -X POST --data-urlencode @_output.tgz http://localhost:8080/import/console.
 
 #curl -X POST --data-urlencode @requirements.txt http://localhost:8080/import/console.appuio.ch:8443/appuio-demo3922/demo3922@appuio.ch/BgG3Ks%o2
 #curl -X POST --data-urlencode @_randominput.txt http://localhost:8080/import/console.appuio.ch:8443/appuio-demo3922/demo3922@appuio.ch/BgG3Ks%o2
+
+# TODOs:
+# - security
+# - large file support
