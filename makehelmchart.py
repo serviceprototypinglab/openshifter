@@ -60,4 +60,5 @@ if __name__ == "__main__":
 		print("DR: active")
 	else:
 		print("DR: inactive")
-	makehelmchart("_state/zhaw-hendu_console-appuio-ch:8443_zhaw-jspillner1/zhaw-test1")
+	#makehelmchart("_state/zhaw-hendu_console-appuio-ch:8443_zhaw-jspillner1/zhaw-test1")
+	makehelmchart("_state/console.appuio.ch:8443/appuio-demo3922/")
