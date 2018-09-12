@@ -5,7 +5,13 @@ import shutil
 import tarfile
 import time
 
-def makehelmchart(dirpath, volumes):
+drmod = None
+try:
+	import descriptorrewriter.descriptorrewriter as drmod
+except:
+	pass
+
+def makehelmchart(dirpath, volumes=False):
 	helmpath = dirpath + ".helm"
 	os.makedirs(os.path.join(helmpath, "templates"), exist_ok=True)
 
@@ -26,6 +32,13 @@ def makehelmchart(dirpath, volumes):
 	for descriptor in descriptors:
 		shutil.copy(descriptor, os.path.join(helmpath, "templates", os.path.basename(descriptor)))
 
+	if drmod:
+		dr = drmod.DescriptorRewriter()
+		dirs = [os.path.join(helmpath, "templates")]
+		for dirname in dirs:
+			dr.scandir(dirname)
+		dr.parse()
+
 	if volumes:
 		os.makedirs(os.path.join(helmpath, "volumes"), exist_ok=True)
 		directories = os.listdir(dirpath)
@@ -43,4 +56,8 @@ def makehelmchart(dirpath, volumes):
 	return tfpath
 
 if __name__ == "__main__":
+	if drmod:
+		print("DR: active")
+	else:
+		print("DR: inactive")
 	makehelmchart("_state/zhaw-hendu_console-appuio-ch:8443_zhaw-jspillner1/zhaw-test1")
