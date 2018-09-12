@@ -37,7 +37,7 @@ def makehelmchart(dirpath, volumes=False):
 		dirs = [os.path.join(helmpath, "templates")]
 		for dirname in dirs:
 			dr.scandir(dirname)
-		dr.parse()
+		dr.parse(os.path.join(helmpath, "templates"))
 
 	if volumes:
 		os.makedirs(os.path.join(helmpath, "volumes"), exist_ok=True)
@@ -61,4 +61,4 @@ if __name__ == "__main__":
 	else:
 		print("DR: inactive")
 	#makehelmchart("_state/zhaw-hendu_console-appuio-ch:8443_zhaw-jspillner1/zhaw-test1")
-	makehelmchart("_state/console.appuio.ch:8443/appuio-demo3922/")
+	makehelmchart("_state/console.appuio.ch:8443/appuio-demo3922")
