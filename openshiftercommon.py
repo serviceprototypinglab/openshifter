@@ -1,7 +1,7 @@
 import subprocess
 
 import os.path
-OC = os.path.expanduser("~/Downloads/OpenShift/openshift-origin-client-tools-v3.9.0-191fece-linux-64bit/oc")
+OC = os.path.expanduser("oc")
 
 def oc_getcontexts():
 	"""

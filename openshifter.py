@@ -91,14 +91,14 @@ def oc_import(ctx, space, username, password, data):
 
 	return "ok, dummy"
 
-#async def api_getcontexts(request):
-#	names = openshiftercommon.oc_getcontexts()
-#	return web.Response(text=json.dumps(names) + "\n")
-#
-#async def api_getspaces(request):
-#	names = openshiftercommon.oc_getcontexts()
-#	spaces = openshiftercommon.oc_getprojects(names)
-#	return web.Response(text=json.dumps(spaces) + "\n")
+async def api_getcontexts(request):
+	names = openshiftercommon.oc_getcontexts()
+	return web.Response(text=json.dumps(names) + "\n")
+
+async def api_getspaces(request):
+	names = openshiftercommon.oc_getcontexts()
+	spaces = openshiftercommon.oc_getprojects(names)
+	return web.Response(text=json.dumps(spaces) + "\n")
 
 async def api_descriptor(request):
 	json_descriptor = oc_descriptor(request.match_info["context"], request.match_info["space"], request.match_info["user"], request.match_info["pass"])
@@ -141,8 +141,8 @@ async def api_import(request):
 
 app = web.Application()
 app.add_routes([
-	#web.get("/spaces", api_getspaces),
-	#web.get("/contexts", api_getcontexts),
+	web.get("/spaces", api_getspaces),
+	web.get("/contexts", api_getcontexts),
 	web.get("/descriptor/{context}/{space}/{user}/{pass}", api_descriptor),
 	web.get("/volumes/{context}/{space}/{user}/{pass}", api_volumes),
 	web.get("/export/{context}/{space}/{user}/{pass}", api_export),
