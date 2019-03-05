@@ -8,13 +8,19 @@ alias oc='oc'
 
 rm -rf _*
 
+#Export from minishift:
 curl http://localhost:8080/export/192.168.99.100:8443/myproject/developer/asdf > _output
+#Export from APPUiO:
+#curl http://localhost:8080/export/console.appuio.ch:443/zhaw-devtest/zhaw-pgkikopoulos1/6693Tak!27414!3ur > _output
 base64 -d < _output > _output.tgz
 
 oc delete all --all
 while true; do echo -n .; status=`oc get all 2>&1`; if [ "$status" = "No resources found." ]; then break; fi; sleep 1; done; echo
 
-curl -X POST --data-urlencode @_output.tgz http://localhost:8080/import/192.168.99.100:8443/myproject/developer/asdf
+#Import to minishift:
+#curl -X POST --data-urlencode @_output.tgz http://localhost:8080/import/192.168.99.100:8443/myproject/developer/asdf
+#Import to APPUiO:
+curl -X POST --data-urlencode @_output.tgz http://localhost:8080/import/console.appuio.ch:443/zhaw-devtest/zhaw-pgkikopoulos1/6693Tak!27414!3ur
 
 #curl -X POST --data-urlencode @requirements.txt http://localhost:8080/import/console.appuio.ch:8443/appuio-demo3922/demo3922@appuio.ch/BgG3Ks%o2
 #curl -X POST --data-urlencode @_randominput.txt http://localhost:8080/import/console.appuio.ch:8443/appuio-demo3922/demo3922@appuio.ch/BgG3Ks%o2

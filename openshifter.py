@@ -127,6 +127,7 @@ async def api_import(request):
 	username = request.match_info["user"]
 	password = request.match_info["pass"]
 
+	json_descriptor = oc_descriptor(ctx, space, username, password)
 	data = await request.read()
 	data = urllib.parse.unquote_to_bytes(data.decode("utf-8"))
 
