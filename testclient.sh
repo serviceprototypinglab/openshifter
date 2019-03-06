@@ -28,3 +28,4 @@ curl -X POST --data-urlencode @_output.tgz http://localhost:8080/import/console.
 # TODOs:
 # - security
 # - large file support
+#curl -X POST --data-urlencode @apptest.tgz http://localhost:8080/import/console.appuio.ch:443/zhaw-devtest/zhaw-pgkikopoulos1/6693Tak!27414!3ur

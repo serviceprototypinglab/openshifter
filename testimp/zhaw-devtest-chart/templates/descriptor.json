@@ -1,0 +1,1217 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/limit-ranger": "LimitRanger plugin set: cpu, memory request for container sti-build; cpu, memory limit for container sti-build; cpu, memory request for init container git-clone; cpu, memory limit for init container git-clone; cpu, memory request for init container manage-dockerfile; cpu, memory limit for init container manage-dockerfile",
+                    "openshift.io/build.name": "django-ex-1",
+                    "openshift.io/scc": "privileged"
+                },
+                "creationTimestamp": "2019-03-06T09:47:33Z",
+                "labels": {
+                    "openshift.io/build.name": "django-ex-1"
+                },
+                "name": "django-ex-1-build",
+                "namespace": "myproject",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "build.openshift.io/v1",
+                        "controller": true,
+                        "kind": "Build",
+                        "name": "django-ex-1",
+                        "uid": "dd949c5f-3ff4-11e9-b1e1-fa163ed95dac"
+                    }
+                ],
+                "resourceVersion": "373093097",
+                "selfLink": "/api/v1/namespaces/myproject/pods/django-ex-1-build",
+                "uid": "dda8b4af-3ff4-11e9-b1e1-fa163ed95dac"
+            },
+            "spec": {
+                "activeDeadlineSeconds": 1800,
+                "containers": [
+                    {
+                        "args": [
+                            "--loglevel=0"
+                        ],
+                        "command": [
+                            "openshift-sti-build"
+                        ],
+                        "env": [
+                            {
+                                "name": "BUILD",
+                                "value": "{\"kind\":\"Build\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"django-ex-1\",\"namespace\":\"myproject\",\"selfLink\":\"/apis/build.openshift.io/v1/namespaces/myproject/builds/django-ex-1\",\"uid\":\"dd949c5f-3ff4-11e9-b1e1-fa163ed95dac\",\"resourceVersion\":\"373092347\",\"creationTimestamp\":\"2019-03-06T09:47:33Z\",\"labels\":{\"app\":\"django-ex\",\"buildconfig\":\"django-ex\",\"openshift.io/build-config.name\":\"django-ex\",\"openshift.io/build.start-policy\":\"Serial\"},\"annotations\":{\"openshift.io/build-config.name\":\"django-ex\",\"openshift.io/build.number\":\"1\"},\"ownerReferences\":[{\"apiVersion\":\"build.openshift.io/v1\",\"kind\":\"BuildConfig\",\"name\":\"django-ex\",\"uid\":\"dd86c01e-3ff4-11e9-b1e1-fa163ed95dac\",\"controller\":true}]},\"spec\":{\"serviceAccount\":\"builder\",\"source\":{\"type\":\"Git\",\"git\":{\"uri\":\"https://github.com/openshift/django-ex.git\",\"ref\":\"master\"}},\"strategy\":{\"type\":\"Source\",\"sourceStrategy\":{\"from\":{\"kind\":\"DockerImage\",\"name\":\"registry.access.redhat.com/rhscl/python-36-rhel7@sha256:d55b6379d8d76b90ca7bd20b7632013d4c2bb77f357151faa89af8a76c188cdc\"}}},\"output\":{\"to\":{\"kind\":\"DockerImage\",\"name\":\"docker-registry.default.svc:5000/myproject/django-ex:latest\"},\"pushSecret\":{\"name\":\"builder-dockercfg-9vszr\"}},\"resources\":{},\"postCommit\":{},\"nodeSelector\":null,\"triggeredBy\":[{\"message\":\"Build configuration change\"}]},\"status\":{\"phase\":\"New\",\"outputDockerImageReference\":\"docker-registry.default.svc:5000/myproject/django-ex:latest\",\"config\":{\"kind\":\"BuildConfig\",\"namespace\":\"myproject\",\"name\":\"django-ex\"},\"output\":{}}}\n"
+                            },
+                            {
+                                "name": "SOURCE_REPOSITORY",
+                                "value": "https://github.com/openshift/django-ex.git"
+                            },
+                            {
+                                "name": "SOURCE_URI",
+                                "value": "https://github.com/openshift/django-ex.git"
+                            },
+                            {
+                                "name": "SOURCE_REF",
+                                "value": "master"
+                            },
+                            {
+                                "name": "ORIGIN_VERSION",
+                                "value": "v3.9.51"
+                            },
+                            {
+                                "name": "ALLOWED_UIDS",
+                                "value": "1-"
+                            },
+                            {
+                                "name": "DROP_CAPS",
+                                "value": "KILL,MKNOD,SETGID,SETUID"
+                            },
+                            {
+                                "name": "PUSH_DOCKERCFG_PATH",
+                                "value": "/var/run/secrets/openshift.io/push"
+                            }
+                        ],
+                        "image": "openshift3/ose-sti-builder:v3.9.51",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "sti-build",
+                        "resources": {
+                            "limits": {
+                                "cpu": "250m",
+                                "memory": "256Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "128Mi"
+                            }
+                        },
+                        "securityContext": {
+                            "privileged": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "FallbackToLogsOnError",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp/build",
+                                "name": "buildworkdir"
+                            },
+                            {
+                                "mountPath": "/var/run/docker.sock",
+                                "name": "docker-socket"
+                            },
+                            {
+                                "mountPath": "/var/run/crio/crio.sock",
+                                "name": "crio-socket"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/openshift.io/push",
+                                "name": "builder-dockercfg-9vszr-push",
+                                "readOnly": true
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "builder-token-qrl9l",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "imagePullSecrets": [
+                    {
+                        "name": "builder-dockercfg-9vszr"
+                    }
+                ],
+                "initContainers": [
+                    {
+                        "args": [
+                            "--loglevel=0"
+                        ],
+                        "command": [
+                            "openshift-git-clone"
+                        ],
+                        "env": [
+                            {
+                                "name": "BUILD",
+                                "value": "{\"kind\":\"Build\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"django-ex-1\",\"namespace\":\"myproject\",\"selfLink\":\"/apis/build.openshift.io/v1/namespaces/myproject/builds/django-ex-1\",\"uid\":\"dd949c5f-3ff4-11e9-b1e1-fa163ed95dac\",\"resourceVersion\":\"373092347\",\"creationTimestamp\":\"2019-03-06T09:47:33Z\",\"labels\":{\"app\":\"django-ex\",\"buildconfig\":\"django-ex\",\"openshift.io/build-config.name\":\"django-ex\",\"openshift.io/build.start-policy\":\"Serial\"},\"annotations\":{\"openshift.io/build-config.name\":\"django-ex\",\"openshift.io/build.number\":\"1\"},\"ownerReferences\":[{\"apiVersion\":\"build.openshift.io/v1\",\"kind\":\"BuildConfig\",\"name\":\"django-ex\",\"uid\":\"dd86c01e-3ff4-11e9-b1e1-fa163ed95dac\",\"controller\":true}]},\"spec\":{\"serviceAccount\":\"builder\",\"source\":{\"type\":\"Git\",\"git\":{\"uri\":\"https://github.com/openshift/django-ex.git\",\"ref\":\"master\"}},\"strategy\":{\"type\":\"Source\",\"sourceStrategy\":{\"from\":{\"kind\":\"DockerImage\",\"name\":\"registry.access.redhat.com/rhscl/python-36-rhel7@sha256:d55b6379d8d76b90ca7bd20b7632013d4c2bb77f357151faa89af8a76c188cdc\"}}},\"output\":{\"to\":{\"kind\":\"DockerImage\",\"name\":\"docker-registry.default.svc:5000/myproject/django-ex:latest\"},\"pushSecret\":{\"name\":\"builder-dockercfg-9vszr\"}},\"resources\":{},\"postCommit\":{},\"nodeSelector\":null,\"triggeredBy\":[{\"message\":\"Build configuration change\"}]},\"status\":{\"phase\":\"New\",\"outputDockerImageReference\":\"docker-registry.default.svc:5000/myproject/django-ex:latest\",\"config\":{\"kind\":\"BuildConfig\",\"namespace\":\"myproject\",\"name\":\"django-ex\"},\"output\":{}}}\n"
+                            },
+                            {
+                                "name": "SOURCE_REPOSITORY",
+                                "value": "https://github.com/openshift/django-ex.git"
+                            },
+                            {
+                                "name": "SOURCE_URI",
+                                "value": "https://github.com/openshift/django-ex.git"
+                            },
+                            {
+                                "name": "SOURCE_REF",
+                                "value": "master"
+                            },
+                            {
+                                "name": "ORIGIN_VERSION",
+                                "value": "v3.9.51"
+                            },
+                            {
+                                "name": "ALLOWED_UIDS",
+                                "value": "1-"
+                            },
+                            {
+                                "name": "DROP_CAPS",
+                                "value": "KILL,MKNOD,SETGID,SETUID"
+                            }
+                        ],
+                        "image": "openshift3/ose-sti-builder:v3.9.51",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "git-clone",
+                        "resources": {
+                            "limits": {
+                                "cpu": "250m",
+                                "memory": "256Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "128Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "FallbackToLogsOnError",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp/build",
+                                "name": "buildworkdir"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "builder-token-qrl9l",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "args": [
+                            "--loglevel=0"
+                        ],
+                        "command": [
+                            "openshift-manage-dockerfile"
+                        ],
+                        "env": [
+                            {
+                                "name": "BUILD",
+                                "value": "{\"kind\":\"Build\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"django-ex-1\",\"namespace\":\"myproject\",\"selfLink\":\"/apis/build.openshift.io/v1/namespaces/myproject/builds/django-ex-1\",\"uid\":\"dd949c5f-3ff4-11e9-b1e1-fa163ed95dac\",\"resourceVersion\":\"373092347\",\"creationTimestamp\":\"2019-03-06T09:47:33Z\",\"labels\":{\"app\":\"django-ex\",\"buildconfig\":\"django-ex\",\"openshift.io/build-config.name\":\"django-ex\",\"openshift.io/build.start-policy\":\"Serial\"},\"annotations\":{\"openshift.io/build-config.name\":\"django-ex\",\"openshift.io/build.number\":\"1\"},\"ownerReferences\":[{\"apiVersion\":\"build.openshift.io/v1\",\"kind\":\"BuildConfig\",\"name\":\"django-ex\",\"uid\":\"dd86c01e-3ff4-11e9-b1e1-fa163ed95dac\",\"controller\":true}]},\"spec\":{\"serviceAccount\":\"builder\",\"source\":{\"type\":\"Git\",\"git\":{\"uri\":\"https://github.com/openshift/django-ex.git\",\"ref\":\"master\"}},\"strategy\":{\"type\":\"Source\",\"sourceStrategy\":{\"from\":{\"kind\":\"DockerImage\",\"name\":\"registry.access.redhat.com/rhscl/python-36-rhel7@sha256:d55b6379d8d76b90ca7bd20b7632013d4c2bb77f357151faa89af8a76c188cdc\"}}},\"output\":{\"to\":{\"kind\":\"DockerImage\",\"name\":\"docker-registry.default.svc:5000/myproject/django-ex:latest\"},\"pushSecret\":{\"name\":\"builder-dockercfg-9vszr\"}},\"resources\":{},\"postCommit\":{},\"nodeSelector\":null,\"triggeredBy\":[{\"message\":\"Build configuration change\"}]},\"status\":{\"phase\":\"New\",\"outputDockerImageReference\":\"docker-registry.default.svc:5000/myproject/django-ex:latest\",\"config\":{\"kind\":\"BuildConfig\",\"namespace\":\"myproject\",\"name\":\"django-ex\"},\"output\":{}}}\n"
+                            },
+                            {
+                                "name": "SOURCE_REPOSITORY",
+                                "value": "https://github.com/openshift/django-ex.git"
+                            },
+                            {
+                                "name": "SOURCE_URI",
+                                "value": "https://github.com/openshift/django-ex.git"
+                            },
+                            {
+                                "name": "SOURCE_REF",
+                                "value": "master"
+                            },
+                            {
+                                "name": "ORIGIN_VERSION",
+                                "value": "v3.9.51"
+                            },
+                            {
+                                "name": "ALLOWED_UIDS",
+                                "value": "1-"
+                            },
+                            {
+                                "name": "DROP_CAPS",
+                                "value": "KILL,MKNOD,SETGID,SETUID"
+                            }
+                        ],
+                        "image": "openshift3/ose-sti-builder:v3.9.51",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "manage-dockerfile",
+                        "resources": {
+                            "limits": {
+                                "cpu": "250m",
+                                "memory": "256Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "128Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "FallbackToLogsOnError",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp/build",
+                                "name": "buildworkdir"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "builder-token-qrl9l",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "nodeName": "node38.prod.zrh.appuio.ch",
+                "nodeSelector": {
+                    "region": "zrh"
+                },
+                "restartPolicy": "Never",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "builder",
+                "serviceAccountName": "builder",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoSchedule",
+                        "key": "node.kubernetes.io/memory-pressure",
+                        "operator": "Exists"
+                    }
+                ],
+                "volumes": [
+                    {
+                        "emptyDir": {},
+                        "name": "buildworkdir"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/var/run/docker.sock",
+                            "type": ""
+                        },
+                        "name": "docker-socket"
+                    },
+                    {
+                        "hostPath": {
+                            "path": "/var/run/crio/crio.sock",
+                            "type": ""
+                        },
+                        "name": "crio-socket"
+                    },
+                    {
+                        "name": "builder-dockercfg-9vszr-push",
+                        "secret": {
+                            "defaultMode": 384,
+                            "secretName": "builder-dockercfg-9vszr"
+                        }
+                    },
+                    {
+                        "name": "builder-token-qrl9l",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "builder-token-qrl9l"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-03-06T09:47:45Z",
+                        "reason": "PodCompleted",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-03-06T09:49:24Z",
+                        "reason": "PodCompleted",
+                        "status": "False",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-03-06T09:47:33Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://8ae0e18af97d460468941a989c875b4501d1c534e393a77c2bbf3bd2fcc35407",
+                        "image": "registry.access.redhat.com/openshift3/ose-sti-builder:v3.9.51",
+                        "imageID": "docker-pullable://registry.access.redhat.com/openshift3/ose-sti-builder@sha256:7db54108293b32f9505df67db4b4e9ec4b4b90a3f4b07b0e34ff6ed7c44adbce",
+                        "lastState": {},
+                        "name": "sti-build",
+                        "ready": false,
+                        "restartCount": 0,
+                        "state": {
+                            "terminated": {
+                                "containerID": "docker://8ae0e18af97d460468941a989c875b4501d1c534e393a77c2bbf3bd2fcc35407",
+                                "exitCode": 0,
+                                "finishedAt": "2019-03-06T09:49:24Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-03-06T09:47:46Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.17.176.133",
+                "initContainerStatuses": [
+                    {
+                        "containerID": "docker://9f4f3b8b75a6845cd4290448457ec4294adc518f646c36566d25ae0ceea90c48",
+                        "image": "registry.access.redhat.com/openshift3/ose-sti-builder:v3.9.51",
+                        "imageID": "docker-pullable://registry.access.redhat.com/openshift3/ose-sti-builder@sha256:7db54108293b32f9505df67db4b4e9ec4b4b90a3f4b07b0e34ff6ed7c44adbce",
+                        "lastState": {},
+                        "name": "git-clone",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "terminated": {
+                                "containerID": "docker://9f4f3b8b75a6845cd4290448457ec4294adc518f646c36566d25ae0ceea90c48",
+                                "exitCode": 0,
+                                "finishedAt": "2019-03-06T09:47:42Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-03-06T09:47:36Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://31aa896978166959a1760a09eeb9b65805321fed802537330b344324b0c6cc0e",
+                        "image": "registry.access.redhat.com/openshift3/ose-sti-builder:v3.9.51",
+                        "imageID": "docker-pullable://registry.access.redhat.com/openshift3/ose-sti-builder@sha256:7db54108293b32f9505df67db4b4e9ec4b4b90a3f4b07b0e34ff6ed7c44adbce",
+                        "lastState": {},
+                        "name": "manage-dockerfile",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "terminated": {
+                                "containerID": "docker://31aa896978166959a1760a09eeb9b65805321fed802537330b344324b0c6cc0e",
+                                "exitCode": 0,
+                                "finishedAt": "2019-03-06T09:47:45Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-03-06T09:47:43Z"
+                            }
+                        }
+                    }
+                ],
+                "phase": "Succeeded",
+                "podIP": "10.1.25.10",
+                "qosClass": "Burstable",
+                "startTime": "2019-03-06T09:47:33Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/limit-ranger": "LimitRanger plugin set: cpu, memory request for container django-ex; cpu, memory limit for container django-ex",
+                    "openshift.io/deployment-config.latest-version": "2",
+                    "openshift.io/deployment-config.name": "django-ex",
+                    "openshift.io/deployment.name": "django-ex-2",
+                    "openshift.io/scc": "restricted"
+                },
+                "creationTimestamp": "2019-03-06T09:49:31Z",
+                "generateName": "django-ex-2-",
+                "labels": {
+                    "app": "django-ex",
+                    "deployment": "django-ex-2",
+                    "deploymentconfig": "django-ex"
+                },
+                "name": "django-ex-2-psnxx",
+                "namespace": "myproject",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicationController",
+                        "name": "django-ex-2",
+                        "uid": "2153aeb4-3ff5-11e9-b1e1-fa163ed95dac"
+                    }
+                ],
+                "resourceVersion": "373093208",
+                "selfLink": "/api/v1/namespaces/myproject/pods/django-ex-2-psnxx",
+                "uid": "23db92dd-3ff5-11e9-b1e1-fa163ed95dac"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "docker-registry.default.svc:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c",
+                        "imagePullPolicy": "Always",
+                        "name": "django-ex",
+                        "ports": [
+                            {
+                                "containerPort": 8080,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "250m",
+                                "memory": "256Mi"
+                            },
+                            "requests": {
+                                "cpu": "100m",
+                                "memory": "128Mi"
+                            }
+                        },
+                        "securityContext": {
+                            "capabilities": {
+                                "drop": [
+                                    "KILL",
+                                    "MKNOD",
+                                    "SETGID",
+                                    "SETUID"
+                                ]
+                            },
+                            "runAsUser": 1005380000
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-kbm49",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "imagePullSecrets": [
+                    {
+                        "name": "default-dockercfg-r9r84"
+                    }
+                ],
+                "nodeName": "node38.prod.zrh.appuio.ch",
+                "nodeSelector": {
+                    "region": "zrh"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {
+                    "fsGroup": 1005380000,
+                    "seLinuxOptions": {
+                        "level": "s0:c73,c62"
+                    }
+                },
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoSchedule",
+                        "key": "node.kubernetes.io/memory-pressure",
+                        "operator": "Exists"
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-kbm49",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-kbm49"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-03-06T09:49:31Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-03-06T09:49:34Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-03-06T09:49:31Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://9f88d730ff6df42a94acd9efa133045d36d1e9f59ecd2753a191816de4935f76",
+                        "image": "docker-registry.default.svc:5000/myproject/django-ex:latest",
+                        "imageID": "docker-pullable://docker-registry.default.svc:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c",
+                        "lastState": {},
+                        "name": "django-ex",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-03-06T09:49:33Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.17.176.133",
+                "phase": "Running",
+                "podIP": "10.1.25.13",
+                "qosClass": "Burstable",
+                "startTime": "2019-03-06T09:49:31Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "ReplicationController",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/desired-replicas": "1",
+                    "openshift.io/deployer-pod.created-at": "2019-03-06 10:49:23 +0100 CET",
+                    "openshift.io/deployer-pod.name": "django-ex-1-deploy",
+                    "openshift.io/deployment-config.latest-version": "1",
+                    "openshift.io/deployment-config.name": "django-ex",
+                    "openshift.io/deployment.cancelled": "true",
+                    "openshift.io/deployment.phase": "Failed",
+                    "openshift.io/deployment.replicas": "0",
+                    "openshift.io/deployment.status-reason": "newer deployment was found running",
+                    "openshift.io/encoded-deployment-config": "{\"kind\":\"DeploymentConfig\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"django-ex\",\"namespace\":\"myproject\",\"selfLink\":\"/apis/apps.openshift.io/v1/namespaces/myproject/deploymentconfigs/django-ex\",\"uid\":\"dd833695-3ff4-11e9-b1e1-fa163ed95dac\",\"resourceVersion\":\"373093074\",\"generation\":2,\"creationTimestamp\":\"2019-03-06T09:47:33Z\",\"labels\":{\"app\":\"django-ex\"},\"annotations\":{\"openshift.io/generated-by\":\"OpenShiftWebConsole\"}},\"spec\":{\"strategy\":{\"type\":\"Rolling\",\"rollingParams\":{\"updatePeriodSeconds\":1,\"intervalSeconds\":1,\"timeoutSeconds\":600,\"maxUnavailable\":\"25%\",\"maxSurge\":\"25%\"},\"resources\":{},\"activeDeadlineSeconds\":21600},\"triggers\":[{\"type\":\"ImageChange\",\"imageChangeParams\":{\"automatic\":true,\"containerNames\":[\"django-ex\"],\"from\":{\"kind\":\"ImageStreamTag\",\"namespace\":\"myproject\",\"name\":\"django-ex:latest\"},\"lastTriggeredImage\":\"172.30.1.1:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c\"}},{\"type\":\"ConfigChange\"}],\"replicas\":1,\"test\":false,\"selector\":{\"deploymentconfig\":\"django-ex\"},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"app\":\"django-ex\",\"deploymentconfig\":\"django-ex\"}},\"spec\":{\"containers\":[{\"name\":\"django-ex\",\"image\":\"172.30.1.1:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c\",\"ports\":[{\"containerPort\":8080,\"protocol\":\"TCP\"}],\"resources\":{},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"Always\"}],\"restartPolicy\":\"Always\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"securityContext\":{},\"schedulerName\":\"default-scheduler\"}}},\"status\":{\"latestVersion\":1,\"observedGeneration\":1,\"replicas\":0,\"updatedReplicas\":0,\"availableReplicas\":0,\"unavailableReplicas\":0,\"details\":{\"message\":\"config change\",\"causes\":[{\"type\":\"ConfigChange\"}]},\"conditions\":[{\"type\":\"Available\",\"status\":\"False\",\"lastUpdateTime\":\"2019-03-06T09:47:33Z\",\"lastTransitionTime\":\"2019-03-06T09:47:33Z\",\"message\":\"Deployment config does not have minimum availability.\"}]}}\n"
+                },
+                "creationTimestamp": "2019-03-06T09:49:23Z",
+                "generation": 1,
+                "labels": {
+                    "app": "django-ex",
+                    "openshift.io/deployment-config.name": "django-ex"
+                },
+                "name": "django-ex-1",
+                "namespace": "myproject",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps.openshift.io/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "DeploymentConfig",
+                        "name": "django-ex",
+                        "uid": "dd833695-3ff4-11e9-b1e1-fa163ed95dac"
+                    }
+                ],
+                "resourceVersion": "373093131",
+                "selfLink": "/api/v1/namespaces/myproject/replicationcontrollers/django-ex-1",
+                "uid": "1f61f086-3ff5-11e9-b1e1-fa163ed95dac"
+            },
+            "spec": {
+                "replicas": 0,
+                "selector": {
+                    "deployment": "django-ex-1",
+                    "deploymentconfig": "django-ex"
+                },
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "openshift.io/deployment-config.latest-version": "1",
+                            "openshift.io/deployment-config.name": "django-ex",
+                            "openshift.io/deployment.name": "django-ex-1"
+                        },
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "django-ex",
+                            "deployment": "django-ex-1",
+                            "deploymentconfig": "django-ex"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "172.30.1.1:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c",
+                                "imagePullPolicy": "Always",
+                                "name": "django-ex",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "observedGeneration": 1,
+                "replicas": 0
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "ReplicationController",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/deployer-pod.completed-at": "2019-03-06 10:49:34 +0100 CET",
+                    "openshift.io/deployer-pod.created-at": "2019-03-06 10:49:27 +0100 CET",
+                    "openshift.io/deployer-pod.name": "django-ex-2-deploy",
+                    "openshift.io/deployment-config.latest-version": "2",
+                    "openshift.io/deployment-config.name": "django-ex",
+                    "openshift.io/deployment.phase": "Complete",
+                    "openshift.io/deployment.replicas": "1",
+                    "openshift.io/deployment.status-reason": "image change",
+                    "openshift.io/encoded-deployment-config": "{\"kind\":\"DeploymentConfig\",\"apiVersion\":\"v1\",\"metadata\":{\"name\":\"django-ex\",\"namespace\":\"myproject\",\"selfLink\":\"/apis/apps.openshift.io/v1/namespaces/myproject/deploymentconfigs/django-ex\",\"uid\":\"dd833695-3ff4-11e9-b1e1-fa163ed95dac\",\"resourceVersion\":\"373093094\",\"generation\":3,\"creationTimestamp\":\"2019-03-06T09:47:33Z\",\"labels\":{\"app\":\"django-ex\"},\"annotations\":{\"openshift.io/generated-by\":\"OpenShiftWebConsole\"}},\"spec\":{\"strategy\":{\"type\":\"Rolling\",\"rollingParams\":{\"updatePeriodSeconds\":1,\"intervalSeconds\":1,\"timeoutSeconds\":600,\"maxUnavailable\":\"25%\",\"maxSurge\":\"25%\"},\"resources\":{},\"activeDeadlineSeconds\":21600},\"triggers\":[{\"type\":\"ImageChange\",\"imageChangeParams\":{\"automatic\":true,\"containerNames\":[\"django-ex\"],\"from\":{\"kind\":\"ImageStreamTag\",\"namespace\":\"myproject\",\"name\":\"django-ex:latest\"},\"lastTriggeredImage\":\"docker-registry.default.svc:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c\"}},{\"type\":\"ConfigChange\"}],\"replicas\":1,\"test\":false,\"selector\":{\"deploymentconfig\":\"django-ex\"},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"app\":\"django-ex\",\"deploymentconfig\":\"django-ex\"}},\"spec\":{\"containers\":[{\"name\":\"django-ex\",\"image\":\"docker-registry.default.svc:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c\",\"ports\":[{\"containerPort\":8080,\"protocol\":\"TCP\"}],\"resources\":{},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"Always\"}],\"restartPolicy\":\"Always\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"securityContext\":{},\"schedulerName\":\"default-scheduler\"}}},\"status\":{\"latestVersion\":2,\"observedGeneration\":2,\"replicas\":0,\"updatedReplicas\":0,\"availableReplicas\":0,\"unavailableReplicas\":0,\"details\":{\"message\":\"image change\",\"causes\":[{\"type\":\"ImageChange\",\"imageTrigger\":{\"from\":{\"kind\":\"DockerImage\",\"name\":\"docker-registry.default.svc:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c\"}}}]},\"conditions\":[{\"type\":\"Available\",\"status\":\"False\",\"lastUpdateTime\":\"2019-03-06T09:47:33Z\",\"lastTransitionTime\":\"2019-03-06T09:47:33Z\",\"message\":\"Deployment config does not have minimum availability.\"},{\"type\":\"Progressing\",\"status\":\"Unknown\",\"lastUpdateTime\":\"2019-03-06T09:49:23Z\",\"lastTransitionTime\":\"2019-03-06T09:49:23Z\",\"message\":\"replication controller \\\"django-ex-1\\\" is waiting for pod \\\"django-ex-1-deploy\\\" to run\"}]}}\n"
+                },
+                "creationTimestamp": "2019-03-06T09:49:27Z",
+                "generation": 2,
+                "labels": {
+                    "app": "django-ex",
+                    "openshift.io/deployment-config.name": "django-ex"
+                },
+                "name": "django-ex-2",
+                "namespace": "myproject",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps.openshift.io/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "DeploymentConfig",
+                        "name": "django-ex",
+                        "uid": "dd833695-3ff4-11e9-b1e1-fa163ed95dac"
+                    }
+                ],
+                "resourceVersion": "373093222",
+                "selfLink": "/api/v1/namespaces/myproject/replicationcontrollers/django-ex-2",
+                "uid": "2153aeb4-3ff5-11e9-b1e1-fa163ed95dac"
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "deployment": "django-ex-2",
+                    "deploymentconfig": "django-ex"
+                },
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "openshift.io/deployment-config.latest-version": "2",
+                            "openshift.io/deployment-config.name": "django-ex",
+                            "openshift.io/deployment.name": "django-ex-2"
+                        },
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "django-ex",
+                            "deployment": "django-ex-2",
+                            "deploymentconfig": "django-ex"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "docker-registry.default.svc:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c",
+                                "imagePullPolicy": "Always",
+                                "name": "django-ex",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "fullyLabeledReplicas": 1,
+                "observedGeneration": 2,
+                "readyReplicas": 1,
+                "replicas": 1
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftWebConsole"
+                },
+                "creationTimestamp": "2019-03-06T09:47:33Z",
+                "labels": {
+                    "app": "django-ex"
+                },
+                "name": "django-ex",
+                "namespace": "myproject",
+                "resourceVersion": "373092343",
+                "selfLink": "/api/v1/namespaces/myproject/services/django-ex",
+                "uid": "dd8885b9-3ff4-11e9-b1e1-fa163ed95dac"
+            },
+            "spec": {
+                "clusterIP": "172.30.41.159",
+                "ports": [
+                    {
+                        "name": "8080-tcp",
+                        "port": 8080,
+                        "protocol": "TCP",
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "deploymentconfig": "django-ex"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "apps.openshift.io/v1",
+            "kind": "DeploymentConfig",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftWebConsole"
+                },
+                "creationTimestamp": "2019-03-06T09:47:33Z",
+                "generation": 3,
+                "labels": {
+                    "app": "django-ex"
+                },
+                "name": "django-ex",
+                "namespace": "myproject",
+                "resourceVersion": "373093223",
+                "selfLink": "/apis/apps.openshift.io/v1/namespaces/myproject/deploymentconfigs/django-ex",
+                "uid": "dd833695-3ff4-11e9-b1e1-fa163ed95dac"
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "deploymentconfig": "django-ex"
+                },
+                "strategy": {
+                    "activeDeadlineSeconds": 21600,
+                    "resources": {},
+                    "rollingParams": {
+                        "intervalSeconds": 1,
+                        "maxSurge": "25%",
+                        "maxUnavailable": "25%",
+                        "timeoutSeconds": 600,
+                        "updatePeriodSeconds": 1
+                    },
+                    "type": "Rolling"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "django-ex",
+                            "deploymentconfig": "django-ex"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "docker-registry.default.svc:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c",
+                                "imagePullPolicy": "Always",
+                                "name": "django-ex",
+                                "ports": [
+                                    {
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                },
+                "test": false,
+                "triggers": [
+                    {
+                        "imageChangeParams": {
+                            "automatic": true,
+                            "containerNames": [
+                                "django-ex"
+                            ],
+                            "from": {
+                                "kind": "ImageStreamTag",
+                                "name": "django-ex:latest",
+                                "namespace": "myproject"
+                            },
+                            "lastTriggeredImage": "docker-registry.default.svc:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c"
+                        },
+                        "type": "ImageChange"
+                    },
+                    {
+                        "type": "ConfigChange"
+                    }
+                ]
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2019-03-06T09:49:34Z",
+                        "lastUpdateTime": "2019-03-06T09:49:34Z",
+                        "message": "Deployment config has minimum availability.",
+                        "status": "True",
+                        "type": "Available"
+                    },
+                    {
+                        "lastTransitionTime": "2019-03-06T09:49:31Z",
+                        "lastUpdateTime": "2019-03-06T09:49:35Z",
+                        "message": "replication controller \"django-ex-2\" successfully rolled out",
+                        "reason": "NewReplicationControllerAvailable",
+                        "status": "True",
+                        "type": "Progressing"
+                    }
+                ],
+                "details": {
+                    "causes": [
+                        {
+                            "imageTrigger": {
+                                "from": {
+                                    "kind": "DockerImage",
+                                    "name": "docker-registry.default.svc:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c"
+                                }
+                            },
+                            "type": "ImageChange"
+                        }
+                    ],
+                    "message": "image change"
+                },
+                "latestVersion": 2,
+                "observedGeneration": 3,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "unavailableReplicas": 0,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "build.openshift.io/v1",
+            "kind": "BuildConfig",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftWebConsole"
+                },
+                "creationTimestamp": "2019-03-06T09:47:33Z",
+                "labels": {
+                    "app": "django-ex"
+                },
+                "name": "django-ex",
+                "namespace": "myproject",
+                "resourceVersion": "373092346",
+                "selfLink": "/apis/build.openshift.io/v1/namespaces/myproject/buildconfigs/django-ex",
+                "uid": "dd86c01e-3ff4-11e9-b1e1-fa163ed95dac"
+            },
+            "spec": {
+                "nodeSelector": null,
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "django-ex:latest"
+                    }
+                },
+                "postCommit": {},
+                "resources": {},
+                "runPolicy": "Serial",
+                "source": {
+                    "git": {
+                        "ref": "master",
+                        "uri": "https://github.com/openshift/django-ex.git"
+                    },
+                    "type": "Git"
+                },
+                "strategy": {
+                    "sourceStrategy": {
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "name": "python:3.6",
+                            "namespace": "openshift"
+                        }
+                    },
+                    "type": "Source"
+                },
+                "triggers": [
+                    {
+                        "imageChange": {
+                            "lastTriggeredImageID": "registry.access.redhat.com/rhscl/python-36-rhel7@sha256:d55b6379d8d76b90ca7bd20b7632013d4c2bb77f357151faa89af8a76c188cdc"
+                        },
+                        "type": "ImageChange"
+                    },
+                    {
+                        "type": "ConfigChange"
+                    },
+                    {
+                        "generic": {
+                            "secret": "1a3b11f5ad0402f9"
+                        },
+                        "type": "Generic"
+                    },
+                    {
+                        "github": {
+                            "secret": "c148534e146b4806"
+                        },
+                        "type": "GitHub"
+                    }
+                ]
+            },
+            "status": {
+                "lastVersion": 1
+            }
+        },
+        {
+            "apiVersion": "build.openshift.io/v1",
+            "kind": "Build",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/build-config.name": "django-ex",
+                    "openshift.io/build.number": "1",
+                    "openshift.io/build.pod-name": "django-ex-1-build"
+                },
+                "creationTimestamp": "2019-03-06T09:47:33Z",
+                "labels": {
+                    "app": "django-ex",
+                    "buildconfig": "django-ex",
+                    "openshift.io/build-config.name": "django-ex",
+                    "openshift.io/build.start-policy": "Serial"
+                },
+                "name": "django-ex-1",
+                "namespace": "myproject",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "build.openshift.io/v1",
+                        "controller": true,
+                        "kind": "BuildConfig",
+                        "name": "django-ex",
+                        "uid": "dd86c01e-3ff4-11e9-b1e1-fa163ed95dac"
+                    }
+                ],
+                "resourceVersion": "373093103",
+                "selfLink": "/apis/build.openshift.io/v1/namespaces/myproject/builds/django-ex-1",
+                "uid": "dd949c5f-3ff4-11e9-b1e1-fa163ed95dac"
+            },
+            "spec": {
+                "nodeSelector": null,
+                "output": {
+                    "pushSecret": {
+                        "name": "builder-dockercfg-9vszr"
+                    },
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "django-ex:latest"
+                    }
+                },
+                "postCommit": {},
+                "resources": {},
+                "revision": {
+                    "git": {
+                        "author": {
+                            "email": "bparees@users.noreply.github.com",
+                            "name": "Ben Parees"
+                        },
+                        "commit": "090522300f6cfe9476308128684b1624e980df7b",
+                        "committer": {
+                            "email": "noreply@github.com",
+                            "name": "GitHub"
+                        },
+                        "message": "Merge pull request #137 from danmcp/patch-1"
+                    },
+                    "type": "Git"
+                },
+                "serviceAccount": "builder",
+                "source": {
+                    "git": {
+                        "ref": "master",
+                        "uri": "https://github.com/openshift/django-ex.git"
+                    },
+                    "type": "Git"
+                },
+                "strategy": {
+                    "sourceStrategy": {
+                        "from": {
+                            "kind": "DockerImage",
+                            "name": "registry.access.redhat.com/rhscl/python-36-rhel7@sha256:d55b6379d8d76b90ca7bd20b7632013d4c2bb77f357151faa89af8a76c188cdc"
+                        }
+                    },
+                    "type": "Source"
+                },
+                "triggeredBy": [
+                    {
+                        "message": "Build configuration change"
+                    }
+                ]
+            },
+            "status": {
+                "completionTimestamp": "2019-03-06T09:49:24Z",
+                "config": {
+                    "kind": "BuildConfig",
+                    "name": "django-ex",
+                    "namespace": "myproject"
+                },
+                "duration": 111000000000,
+                "output": {
+                    "to": {
+                        "imageDigest": "sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c"
+                    }
+                },
+                "outputDockerImageReference": "docker-registry.default.svc:5000/myproject/django-ex:latest",
+                "phase": "Complete",
+                "stages": [
+                    {
+                        "durationMilliseconds": 1848,
+                        "name": "FetchInputs",
+                        "startTime": "2019-03-06T09:47:39Z",
+                        "steps": [
+                            {
+                                "durationMilliseconds": 1848,
+                                "name": "FetchGitSource",
+                                "startTime": "2019-03-06T09:47:39Z"
+                            }
+                        ]
+                    },
+                    {
+                        "durationMilliseconds": 3542,
+                        "name": "CommitContainer",
+                        "startTime": "2019-03-06T09:49:10Z",
+                        "steps": [
+                            {
+                                "durationMilliseconds": 3542,
+                                "name": "CommitContainer",
+                                "startTime": "2019-03-06T09:49:10Z"
+                            }
+                        ]
+                    },
+                    {
+                        "durationMilliseconds": 76704,
+                        "name": "Assemble",
+                        "startTime": "2019-03-06T09:47:57Z",
+                        "steps": [
+                            {
+                                "durationMilliseconds": 76704,
+                                "name": "AssembleBuildScripts",
+                                "startTime": "2019-03-06T09:47:57Z"
+                            }
+                        ]
+                    },
+                    {
+                        "durationMilliseconds": 9163,
+                        "name": "PushImage",
+                        "startTime": "2019-03-06T09:49:14Z",
+                        "steps": [
+                            {
+                                "durationMilliseconds": 9163,
+                                "name": "PushImage",
+                                "startTime": "2019-03-06T09:49:14Z"
+                            }
+                        ]
+                    }
+                ],
+                "startTimestamp": "2019-03-06T09:47:33Z"
+            }
+        },
+        {
+            "apiVersion": "image.openshift.io/v1",
+            "kind": "ImageStream",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftWebConsole"
+                },
+                "creationTimestamp": "2019-03-06T09:47:33Z",
+                "generation": 1,
+                "labels": {
+                    "app": "django-ex"
+                },
+                "name": "django-ex",
+                "namespace": "myproject",
+                "resourceVersion": "373093073",
+                "selfLink": "/apis/image.openshift.io/v1/namespaces/myproject/imagestreams/django-ex",
+                "uid": "dd8001a8-3ff4-11e9-b1e1-fa163ed95dac"
+            },
+            "spec": {
+                "lookupPolicy": {
+                    "local": false
+                }
+            },
+            "status": {
+                "dockerImageRepository": "docker-registry.default.svc:5000/myproject/django-ex",
+                "tags": [
+                    {
+                        "items": [
+                            {
+                                "created": "2019-03-06T09:49:23Z",
+                                "dockerImageReference": "docker-registry.default.svc:5000/myproject/django-ex@sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c",
+                                "generation": 1,
+                                "image": "sha256:cea048f07269cfcca053c34cbd377a6b8ae2c738b57841e7d6b79626c8fde55c"
+                            }
+                        ],
+                        "tag": "latest"
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "route.openshift.io/v1",
+            "kind": "Route",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/generated-by": "OpenShiftWebConsole",
+                    "openshift.io/host.generated": "true"
+                },
+                "creationTimestamp": "2019-03-06T09:47:33Z",
+                "labels": {
+                    "app": "django-ex"
+                },
+                "name": "django-ex",
+                "namespace": "myproject",
+                "resourceVersion": "373092341",
+                "selfLink": "/apis/route.openshift.io/v1/namespaces/myproject/routes/django-ex",
+                "uid": "dd836dc6-3ff4-11e9-b1e1-fa163ed95dac"
+            },
+            "spec": {
+                "host": "django-ex-myproject.appuioapp.ch",
+                "port": {
+                    "targetPort": "8080-tcp"
+                },
+                "to": {
+                    "kind": "Service",
+                    "name": "django-ex",
+                    "weight": 100
+                },
+                "wildcardPolicy": "None"
+            },
+            "status": {
+                "ingress": [
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2019-03-06T09:47:33Z",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "django-ex-myproject.appuioapp.ch",
+                        "routerName": "router",
+                        "wildcardPolicy": "None"
+                    }
+                ]
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
