@@ -1,52 +1,62 @@
-import urllib.request
+import urllib
 import base64
 import sys
-
+import subprocess
 import openshiftercommon
+import refactor
+
 
 def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, frompass, topass, sem):
-	r = urllib.request.urlopen("{}/export/{}/{}/{}/{}".format(endpoint, fromurl, fromproject, fromuser, frompass))
-	f = open("_output.tgz", "wb")
-	f.write(base64.b64decode(r.read()))
-	f.close()
-	r.close()
+    r = urllib.request.urlopen("{}/export/{}/{}/{}/{}".format(endpoint, fromurl, fromproject, fromuser, frompass))
+    f = open("_output.tgz", "wb")
+    f.write(base64.b64decode(r.read()))
+    f.close()
+    r.close()
+    refactor.refactor(fromproject, toproject)
+    # Test-move operation for migrating back to the source
+    # In order for this to work, deletion must precede import
+    if sem == 'testmove':
+        subprocess.run("oc delete all --all", shell=True)
+    subprocess.run("curl -X POST --data-urlencode @import.tgz {}/import/{}/{}/{}/{}".format(endpoint, tourl, toproject, touser, topass), shell=True)
+
 
 def menu():
-	endpoint = "http://localhost:8080"
-	if len(sys.argv) == 2:
-		endpoint = sys.argv[1]
+    endpoint = "http://0.0.0.0:8080"
+    if len(sys.argv) == 2:
+        endpoint = sys.argv[1]
 
-	print("OpenShifter - application migration between OpenShift instances")
+    print("OpenShifter - application migration between OpenShift instances")
 
-	names = openshiftercommon.oc_getcontexts()
-	spaces = openshiftercommon.oc_getprojects(names)
+    names = openshiftercommon.oc_getcontexts()
+    spaces = openshiftercommon.oc_getprojects(names)
 
-	print("OpenShift names:")
-	for name in names:
-		for space in spaces[name]:
-			print("* {} ({})".format(name, space))
+    print("OpenShift names:")
+    for name in names:
+        for space in spaces[name]:
+            print("* {} ({})".format(name, space))
 
-	fromurl = input("Migrate from source base URL/OpenShift name: ")
-	if "/" in fromurl:
-		fromproject, fromurl, fromuser = fromurl.split("/")
-		fromurl = fromurl.replace("-", ".")
-	else:
-		fromproject = input(" + source project (optional): ")
-		fromuser = input(" + source username: ")
-	frompass = input(" + source password: ")
-	tourl = input("Migrate to target base URL/OpenShift name: ")
-	if "/" in tourl:
-		toproject, tourl, touser = tourl.split("/")
-		tourl = tourl.replace("-", ".")
-	else:
-		toproject = input(" + target project (optional): ")
-		touser = input(" + target username: ")
-	topass = input(" + target password: ")
-	sem = input("Semantics (copy/move): ")
+    fromurl = input("Migrate from source base URL/OpenShift name: ")
+    if "/" in fromurl:
+        fromproject, fromurl, fromuser = fromurl.split("/")
+        fromurl = fromurl.replace("-", ".")
+    else:
+        fromproject = input(" + source project (optional): ")
+        fromuser = input(" + source username: ")
+    frompass = input(" + source password: ")
+    tourl = input("Migrate to target base URL/OpenShift name: ")
+    if "/" in tourl:
+        toproject, tourl, touser = tourl.split("/")
+        tourl = tourl.replace("-", ".")
+    else:
+        toproject = input(" + target project (optional): ")
+        touser = input(" + target username: ")
+    topass = input(" + target password: ")
+    sem = input("Semantics (copy/move): ")
 
-	try:
-		migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, frompass, topass, sem)
-	except Exception as e:
-		print("Oops - migration went wrong. Is the server running? [{}]".format(e))
+    try:
+        migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, frompass, topass, sem)
+    except Exception as e:
+        print("Oops - migration went wrong. Is the server running? [{}]".format(e))
+
 
 menu()
