@@ -4,6 +4,7 @@ import sys
 import subprocess
 import openshiftercommon
 import refactor
+import requests
 
 
 def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, frompass, topass, sem):
@@ -17,8 +18,10 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     # In order for this to work, deletion must precede import
     if sem == 'testmove':
         subprocess.run("oc delete all --all", shell=True)
-    subprocess.run("curl -X POST --data-urlencode @import.tgz {}/import/{}/{}/{}/{}".format(endpoint, tourl, toproject, touser, topass), shell=True)
-
+    with open('import.tgz', 'rb') as f:
+        data = f.read()
+    data = urllib.parse.quote(data)
+    requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data)
 
 def menu():
     endpoint = "http://0.0.0.0:8080"

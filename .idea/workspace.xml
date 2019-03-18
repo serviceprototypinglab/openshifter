@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40fccdba-e4b9-4d10-b508-6d080a8baaf4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Refactor_tests/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Refactor_tests/import.tgz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Refactor_tests/prepare.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Refactor_tests/refactor.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/import.tgz" beforeDir="false" afterPath="$PROJECT_DIR$/import.tgz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/openshifterclient.py" beforeDir="false" afterPath="$PROJECT_DIR$/openshifterclient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prepare.py" beforeDir="false" afterPath="$PROJECT_DIR$/prepare.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/refactor.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testclient.sh" beforeDir="false" afterPath="$PROJECT_DIR$/testclient.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,32 +14,21 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/openshifter$openshifterclient.coverage" NAME="openshifterclient Coverage Results" MODIFIED="1552578018173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/openshifter$openshifter.coverage" NAME="openshifter Coverage Results" MODIFIED="1552577368888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/openshifter$openshifter.coverage" NAME="openshifter Coverage Results" MODIFIED="1552901720555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/openshifter$encodetest.coverage" NAME="encodetest Coverage Results" MODIFIED="1552401894797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/openshifter$importonlyclient.coverage" NAME="importonlyclient Coverage Results" MODIFIED="1552902147338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.2920299">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/openshifterclient.py">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/importonlyclient.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="840">
-                  <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+                <state relative-caret-position="240">
+                  <caret line="16" column="96" lean-forward="true" selection-start-line="13" selection-end-line="16" selection-end-column="96" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/openshifter.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="481">
-                  <caret line="131" column="40" selection-start-line="131" selection-start-column="11" selection-end-line="131" selection-end-column="40" />
-                  <folding>
-                    <element signature="e#0#23#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -56,6 +39,39 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/openshifterclient.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="345">
+                  <caret line="23" column="104" lean-forward="true" selection-start-line="23" selection-start-column="104" selection-end-line="23" selection-end-column="104" />
+                  <folding>
+                    <element signature="e#0#13#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/openshifter.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="153">
+                  <caret line="131" column="62" lean-forward="true" selection-start-line="131" selection-start-column="62" selection-end-line="131" selection-end-column="62" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/testclient.sh">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="330">
+                  <caret line="22" column="116" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="116" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/refactor.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="105">
@@ -68,10 +84,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/testclient.sh">
+            <entry file="file://$PROJECT_DIR$/prepare.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="106" selection-start-line="14" selection-start-column="89" selection-end-line="14" selection-end-column="106" />
+                <state relative-caret-position="165">
+                  <caret line="11" selection-start-line="11" selection-end-line="11" />
                 </state>
               </provider>
             </entry>
@@ -95,10 +111,11 @@
       <list>
         <option value="$PROJECT_DIR$/refactor.sh" />
         <option value="$PROJECT_DIR$/encodetest.py" />
-        <option value="$PROJECT_DIR$/openshifterclient.py" />
         <option value="$PROJECT_DIR$/Refactor_tests/refactor.py" />
         <option value="$PROJECT_DIR$/testclient.sh" />
         <option value="$PROJECT_DIR$/refactor.py" />
+        <option value="$PROJECT_DIR$/importonlyclient.py" />
+        <option value="$PROJECT_DIR$/openshifterclient.py" />
       </list>
     </option>
   </component>
@@ -115,7 +132,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,28 +139,11 @@
               <item name="openshifter" type="b2602c69:ProjectViewProjectNode" />
               <item name="openshifter" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="openshifter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openshifter" type="462c0819:PsiDirectoryNode" />
-              <item name="_upload_tmp.tgz.unpack" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openshifter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openshifter" type="462c0819:PsiDirectoryNode" />
-              <item name="_upload_tmp.tgz.unpack" type="462c0819:PsiDirectoryNode" />
-              <item name="zhaw-devtest-chart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openshifter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openshifter" type="462c0819:PsiDirectoryNode" />
-              <item name="_upload_tmp.tgz.unpack" type="462c0819:PsiDirectoryNode" />
-              <item name="zhaw-devtest-chart" type="462c0819:PsiDirectoryNode" />
-              <item name="volumes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -165,7 +164,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.openshifter">
+  <component name="RunManager" selected="Python.importonlyclient">
     <configuration name="encodetest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="openshifter" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,6 +179,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/encodetest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="importonlyclient" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="openshifter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/importonlyclient.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -236,9 +257,11 @@
       <item itemvalue="Python.openshifterclient" />
       <item itemvalue="Python.openshifter" />
       <item itemvalue="Python.encodetest" />
+      <item itemvalue="Python.importonlyclient" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.importonlyclient" />
         <item itemvalue="Python.openshifter" />
         <item itemvalue="Python.encodetest" />
       </list>
@@ -260,18 +283,20 @@
       <workItem from="1552556421124" duration="27000" />
       <workItem from="1552557096553" duration="4725000" />
       <workItem from="1552576223883" duration="2537000" />
-      <workItem from="1552578981757" duration="16000" />
+      <workItem from="1552578981757" duration="1355000" />
+      <workItem from="1552898876392" duration="423000" />
+      <workItem from="1552899537790" duration="3305000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24491000" />
+    <option name="totallyTimeSpent" value="29558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1398079" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1430096" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -345,16 +370,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Refactor_tests/refactor.py" />
     <entry file="file://$PROJECT_DIR$/refactor.sh" />
-    <entry file="file://$PROJECT_DIR$/prepare.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/import.tgz">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/_output">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -364,23 +379,24 @@
     <entry file="file://$PROJECT_DIR$/_output.tgz">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/openshifterclient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/_upload_tmp.tgz.unpack/zhaw-devtest-chart/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/openshifter.py">
+    <entry file="file://$PROJECT_DIR$/_upload_tmp.tgz.unpack/zhaw-devtest-chart/Chart.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/import.tgz">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prepare.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="131" column="40" selection-start-line="131" selection-start-column="11" selection-end-line="131" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -394,10 +410,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/openshifter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="131" column="62" lean-forward="true" selection-start-line="131" selection-start-column="62" selection-end-line="131" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testclient.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="106" selection-start-line="14" selection-start-column="89" selection-end-line="14" selection-end-column="106" />
+        <state relative-caret-position="330">
+          <caret line="22" column="116" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/importonlyclient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="96" lean-forward="true" selection-start-line="13" selection-end-line="16" selection-end-column="96" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openshifterclient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="104" lean-forward="true" selection-start-line="23" selection-start-column="104" selection-end-line="23" selection-end-column="104" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
