@@ -6,7 +6,6 @@ import base64
 import urllib.parse
 import tarfile
 import glob
-
 import makehelmchart
 import openshiftercommon
 
