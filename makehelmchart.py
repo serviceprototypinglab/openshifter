@@ -8,7 +8,7 @@ import time
 drmod = None
 try:
 	import descriptorrewriter.descriptorrewriter as drmod
-except:
+except (ImportError, ModuleNotFoundError) as e:
 	pass
 
 
