@@ -12,6 +12,16 @@ import openshiftercommon
 OC = openshiftercommon.OC
 
 
+def oc_switch(context, space, username, password):
+	p = subprocess.run("{} login {} --username={} --password={}".format(OC, context, username, password), shell=True)
+	if p.returncode != 0:
+		return
+	p = subprocess.run("{} project {}".format(OC, space), shell=True)
+	if p.returncode != 0:
+		return
+	return
+
+
 def oc_descriptor(context, space, username, password):
 	# p = subprocess.run("{} config use-context {}".format(OC, context), shell=True)
 	p = subprocess.run("{} login {} --username={} --password={}".format(OC, context, username, password), shell=True)
@@ -136,7 +146,7 @@ async def api_import(request):
 	username = request.match_info["user"]
 	password = request.match_info["pass"]
 
-	oc_descriptor(ctx, space, username, password)
+	oc_switch(ctx, space, username, password)
 	data = await request.read()
 	data = urllib.parse.unquote_to_bytes(data.decode("utf-8"))
 
