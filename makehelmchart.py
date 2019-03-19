@@ -1,5 +1,5 @@
 import os
-#import yaml
+# import yaml
 import glob
 import shutil
 import tarfile
@@ -10,6 +10,7 @@ try:
 	import descriptorrewriter.descriptorrewriter as drmod
 except:
 	pass
+
 
 def makehelmchart(dirpath, volumes=False):
 	helmpath = dirpath + ".helm"
@@ -55,10 +56,11 @@ def makehelmchart(dirpath, volumes=False):
 
 	return tfpath
 
+
 if __name__ == "__main__":
 	if drmod:
 		print("DR: active")
 	else:
 		print("DR: inactive")
-	#makehelmchart("_state/zhaw-hendu_console-appuio-ch:8443_zhaw-jspillner1/zhaw-test1")
+	# makehelmchart("_state/zhaw-hendu_console-appuio-ch:8443_zhaw-jspillner1/zhaw-test1")
 	makehelmchart("_state/console.appuio.ch:8443/appuio-demo3922")

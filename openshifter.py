@@ -12,8 +12,9 @@ import openshiftercommon
 
 OC = openshiftercommon.OC
 
+
 def oc_descriptor(context, space, username, password):
-	#p = subprocess.run("{} config use-context {}".format(OC, context), shell=True)
+	# p = subprocess.run("{} config use-context {}".format(OC, context), shell=True)
 	p = subprocess.run("{} login {} --username={} --password={}".format(OC, context, username, password), shell=True)
 	if p.returncode != 0:
 		return
@@ -24,6 +25,7 @@ def oc_descriptor(context, space, username, password):
 	if p.returncode != 0:
 		return
 	return p.stdout.decode("utf-8")
+
 
 def oc_volumes(json_descriptor):
 	volumes = {}
@@ -40,6 +42,7 @@ def oc_volumes(json_descriptor):
 					volumes[pod].append(volume)
 	return volumes
 
+
 def oc_export(json_descriptor, volumes, context, space):
 	tmpdir = os.path.join("_state", context.replace("/", "_"), space.replace("/", "_"))
 	subprocess.run("rm -rf {}".format(tmpdir), shell=True)
@@ -52,15 +55,16 @@ def oc_export(json_descriptor, volumes, context, space):
 	for pod in volumes:
 		for volume in volumes[pod]:
 			os.makedirs("{}{}".format(tmpdir, volume), exist_ok=True)
-			p = subprocess.run("{} rsync {}:{}/ {}{}".format(OC, pod, volume, tmpdir, volume), shell=True, stdout=subprocess.PIPE)
-			#if p.returncode != 0:
-			#	return
+			subprocess.run("{} rsync {}:{}/ {}{}".format(OC, pod, volume, tmpdir, volume), shell=True, stdout=subprocess.PIPE)
+			# if p.returncode != 0:
+			# 	return
 
 	chart = makehelmchart.makehelmchart(tmpdir, volumes=True)
-	#return True
+	# return True
 	return base64.b64encode(open(chart, "rb").read()).decode("utf-8")
 
-def oc_import(ctx, space, username, password, data):
+
+def oc_import(data):
 	tfname = "_upload_tmp.tgz"
 	tffolder = tfname + ".unpack"
 
@@ -81,7 +85,7 @@ def oc_import(ctx, space, username, password, data):
 		tf.extractall(volumefolder)
 		tf.close()
 
-	p = subprocess.run("{} create -f {}/templates/descriptor.json".format(OC, firstfolder), shell=True)
+	subprocess.run("{} create -f {}/templates/descriptor.json".format(OC, firstfolder), shell=True)
 
 	volumes = oc_volumes(open("{}/templates/descriptor.json".format(firstfolder)).read())
 
@@ -91,23 +95,28 @@ def oc_import(ctx, space, username, password, data):
 
 	return "ok, dummy"
 
-async def api_getcontexts(request):
+
+async def api_getcontexts():
 	names = openshiftercommon.oc_getcontexts()
 	return web.Response(text=json.dumps(names) + "\n")
 
-async def api_getspaces(request):
+
+async def api_getspaces():
 	names = openshiftercommon.oc_getcontexts()
 	spaces = openshiftercommon.oc_getprojects(names)
 	return web.Response(text=json.dumps(spaces) + "\n")
+
 
 async def api_descriptor(request):
 	json_descriptor = oc_descriptor(request.match_info["context"], request.match_info["space"], request.match_info["user"], request.match_info["pass"])
 	return web.Response(text=json_descriptor + "\n")
 
+
 async def api_volumes(request):
 	json_descriptor = oc_descriptor(request.match_info["context"], request.match_info["space"], request.match_info["user"], request.match_info["pass"])
 	volumes = oc_volumes(json_descriptor)
 	return web.Response(text=json.dumps(volumes) + "\n")
+
 
 async def api_export(request):
 	ctx = request.match_info["context"]
@@ -118,8 +127,9 @@ async def api_export(request):
 	json_descriptor = oc_descriptor(ctx, space, username, password)
 	volumes = oc_volumes(json_descriptor)
 	ret = oc_export(json_descriptor, volumes, ctx, space)
-	#return web.Response(text=json.dumps(ret) + "\n")
+	# return web.Response(text=json.dumps(ret) + "\n")
 	return web.Response(text=ret)
+
 
 async def api_import(request):
 	ctx = request.match_info["context"]
@@ -127,17 +137,17 @@ async def api_import(request):
 	username = request.match_info["user"]
 	password = request.match_info["pass"]
 
-	json_descriptor = oc_descriptor(ctx, space, username, password)
+	oc_descriptor(ctx, space, username, password)
 	data = await request.read()
 	data = urllib.parse.unquote_to_bytes(data.decode("utf-8"))
 
 	# _KeysView('...')
-	#data = await request.post()
-	#data = str(data.keys())[11:-2]
-	#data = bytes(data, "utf-8").decode("unicode_escape")
-	#data = urllib.parse.unquote_to_bytes(data)
+	# data = await request.post()
+	# data = str(data.keys())[11:-2]
+	# data = bytes(data, "utf-8").decode("unicode_escape")
+	# data = urllib.parse.unquote_to_bytes(data)
 
-	ret = oc_import(ctx, space, username, password, data)
+	ret = oc_import(data)
 	return web.Response(text=ret)
 
 app = web.Application()

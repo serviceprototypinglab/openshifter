@@ -23,6 +23,7 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     data = urllib.parse.quote(data)
     requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data)
 
+
 def menu():
     endpoint = "http://0.0.0.0:8080"
     if len(sys.argv) == 2:

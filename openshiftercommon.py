@@ -1,7 +1,9 @@
 import subprocess
-
 import os.path
+
+
 OC = os.path.expanduser("oc")
+
 
 def oc_getcontexts():
 	"""
@@ -28,6 +30,7 @@ def oc_getcontexts():
 		names.append(name)
 
 	return names
+
 
 def oc_getprojects(contexts):
 	spaces = {}

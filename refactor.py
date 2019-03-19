@@ -3,16 +3,14 @@ import tarfile
 import glob
 import prepare
 import shutil
+import sys
 
 
 def refactor(source, target):
-    try:
-        shutil.rmtree('_importprep')
-    except:
-        pass
+    shutil.rmtree('_importprep', ignore_errors=True)
     try:
         os.remove('_import.tgz')
-    except:
+    except OSError:
         pass
     with tarfile.open('_output.tgz', 'r:gz') as tf:
         tf.extractall('_importprep')
@@ -25,3 +23,8 @@ def refactor(source, target):
         tar.add(glob.glob("*")[0])
     os.chdir('..')
     shutil.rmtree('_importprep')
+
+
+if __name__ == "__main__":
+    assert len(sys.argv) == 3, "Error: Expected 2 arguments: Source namespace, target namespace"
+    refactor(sys.argv[1], sys.argv[2])
