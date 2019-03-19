@@ -90,7 +90,7 @@ def oc_import(data):
 
 	for pod in volumes:
 		for volume in volumes[pod]:
-			p = subprocess.run("{} rsync {}{} {}:{}/".format(OC, tmpdir, volume, pod, volume), shell=True, stdout=subprocess.PIPE)
+			subprocess.run("{} rsync {}{} {}:{}/".format(OC, tmpdir, volume, pod, volume), shell=True, stdout=subprocess.PIPE)
 
 	return "ok, dummy"
 
