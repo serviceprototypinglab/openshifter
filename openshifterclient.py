@@ -18,7 +18,7 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     # In order for this to work, deletion must precede import
     if sem == 'testmove':
         subprocess.run("oc delete all --all", shell=True)
-    with open('import.tgz', 'rb') as f:
+    with open('_import.tgz', 'rb') as f:
         data = f.read()
     data = urllib.parse.quote(data)
     requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data)
