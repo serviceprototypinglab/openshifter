@@ -1,7 +1,7 @@
 import os
 import tarfile
 import glob
-import prepare
+import fileinput
 import shutil
 import sys
 
@@ -15,7 +15,13 @@ def refactor(source, target):
     with tarfile.open('_output.tgz', 'r:gz') as tf:
         tf.extractall('_importprep')
     os.chdir(glob.glob("_importprep/*/templates")[0])
-    prepare.prepare(source, 'descriptor.json', target)
+    with fileinput.FileInput('descriptor.json', inplace=True) as file:
+        for line in file:
+            print(line.replace(source, target), end='')
+    with open('descriptor.json') as oldfile, open('new_descriptor.json', 'w') as newfile:
+        for line in oldfile:
+            if not (('"' + 'host' + '"') in line):
+                newfile.write(line)
     os.remove('descriptor.json')
     os.rename('new_descriptor.json', 'descriptor.json')
     os.chdir('../..')
