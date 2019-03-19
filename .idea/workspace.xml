@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40fccdba-e4b9-4d10-b508-6d080a8baaf4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openshifterclient.py" beforeDir="false" afterPath="$PROJECT_DIR$/openshifterclient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="40fccdba-e4b9-4d10-b508-6d080a8baaf4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +15,7 @@
     <SUITE FILE_PATH="coverage/openshifter$importonlyclient.coverage" NAME="importonlyclient Coverage Results" MODIFIED="1552902147338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.2920299">
+    <splitter split-orientation="horizontal" split-proportion="0.4601339">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
@@ -255,9 +251,9 @@
     </configuration>
     <list>
       <item itemvalue="Python.openshifterclient" />
-      <item itemvalue="Python.openshifter" />
       <item itemvalue="Python.encodetest" />
       <item itemvalue="Python.importonlyclient" />
+      <item itemvalue="Python.openshifter" />
     </list>
     <recent_temporary>
       <list>
@@ -285,23 +281,22 @@
       <workItem from="1552576223883" duration="2537000" />
       <workItem from="1552578981757" duration="1355000" />
       <workItem from="1552898876392" duration="423000" />
-      <workItem from="1552899537790" duration="3305000" />
+      <workItem from="1552899537790" duration="4700000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29558000" />
+    <option name="totallyTimeSpent" value="30953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1430096" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12326574" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32948583" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32948583" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32948583" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
