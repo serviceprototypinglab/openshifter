@@ -5,14 +5,17 @@ import subprocess
 import openshiftercommon
 import refactor
 import requests
+import ssl
 
 
 def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, frompass, topass, sem):
-    r = urllib.request.urlopen("{}/export/{}/{}/{}/{}".format(endpoint, fromurl, fromproject, fromuser, frompass))
+    sslcontext = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH, cafile='domain_srv.crt')
+    r = urllib.request.urlopen("{}/export/{}/{}/{}/{}".format(endpoint, fromurl, fromproject, fromuser, frompass), context=sslcontext)
     f = open("_output.tgz", "wb")
     f.write(base64.b64decode(r.read()))
     f.close()
     r.close()
+
     refactor.refactor(fromproject, toproject)
     # Test-move operation for migrating back to the source
     # In order for this to work, deletion must precede import
@@ -21,11 +24,11 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     with open('_import.tgz', 'rb') as f:
         data = f.read()
     data = urllib.parse.quote(data)
-    requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data)
+    requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data, verify="domain_srv.crt")
 
 
 def menu():
-    endpoint = "http://0.0.0.0:8080"
+    endpoint = "https://0.0.0.0:8443"
     if len(sys.argv) == 2:
         endpoint = sys.argv[1]
 

@@ -8,6 +8,7 @@ import tarfile
 import glob
 import makehelmchart
 import openshiftercommon
+import ssl
 
 OC = openshiftercommon.OC
 
@@ -169,4 +170,6 @@ app.add_routes([
 	web.post("/import/{context}/{space}/{user}/{pass}", api_import)
 ])
 
-web.run_app(app)
+ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+ssl_context.load_cert_chain('domain_srv.crt', 'domain_srv.key')
+web.run_app(app, ssl_context=ssl_context)

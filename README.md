@@ -8,6 +8,11 @@ The implementation is based on OpenShift, hence the (slightly non-creative and t
 ```
 pip install -r requirements.txt
 ```
+- Generate SSL certs:
+```
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout domain_srv.key -out domain_srv.crt
+
+```
 
 ## Usage:
 - Launch the openshifter server (`openshifter.py`).
