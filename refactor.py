@@ -20,7 +20,7 @@ def refactor(source, target):
             print(line.replace(source, target), end='')
     with open('descriptor.json') as oldfile, open('new_descriptor.json', 'w') as newfile:
         for line in oldfile:
-            if not (('"' + 'host' + '"') in line) and not (('"' + 'clusterIP' + '"') in line) and not (('"' + 'privileged' + '":') in line):
+            if not ('"host"' in line) and not ('"clusterIP"' in line) and not ('"privileged":' in line):
                 newfile.write(line)
     os.remove('descriptor.json')
     os.rename('new_descriptor.json', 'descriptor.json')
