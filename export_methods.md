@@ -29,3 +29,6 @@ We have to manually strip some fields and refactor some others for import across
 
 ## Solution:
 Implemented the refactor script on the client side. This was done to avoid significantly altering the server design since we need to know both the source and target context to refactor.
+
+## Note:
+kubectl (and consequently probably oc shortly) has deprecated the --export flag and it will be removed in future versions. Custom export implementations like the one developed here will be necessary.
