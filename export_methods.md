@@ -16,9 +16,9 @@ The --export flag should filter out cluster-specific information.
 All 4 commands yielded identical json files.
 
 ## Testing method:
-Ran all 4 commands on the same context.  
+Ran all 4 commands on the same context. The test was made on a sample Django-Psql-Persistent deployment that was scaled and updated prior to export.
 Redirected output to json files.  
-File comparison between the 4 output files.
+File comparison between the 4 output files (using Atom editor's Compare Files package).
 
 ## Versions tested:
 oc v3.11.0+0cbc58b  
