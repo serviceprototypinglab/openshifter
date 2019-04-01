@@ -1,5 +1,3 @@
 automate file input
-automate cert creation
-update docs
 check why build does not trigger (try delay)
 check saving half the creds server-side

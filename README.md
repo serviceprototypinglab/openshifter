@@ -4,15 +4,16 @@ is an experimental design study to figure out how microservice-based application
 The implementation is based on OpenShift, hence the (slightly non-creative and trademark-offensive) name.
 
 ## Installation:
-- Install requirements:
-```
-pip install -r requirements.txt
-```
-- Generate SSL certs:
-```
-openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout domain_srv.key -out domain_srv.crt
+#### Prerequisites:
+- python3
+- pip3
+- openssl
 
-```
+#### Setup:
+
+- Run `install.sh`
+
+(The certs generated are self signed so they have to be trusted manually the first time.)
 
 ## Usage:
 - Launch the openshifter server (`openshifter.py`).
