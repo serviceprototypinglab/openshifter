@@ -16,13 +16,9 @@ The implementation is based on OpenShift, hence the (slightly non-creative and t
 (The certs generated are self signed so they have to be trusted manually the first time.)
 
 ## Usage:
+- To automate the process of migration, you can specify information about your OpenShift instances in the `input.json` so you don't have to input them manually on every run.
 - Launch the openshifter server (`openshifter.py`).
-- Launch the client (`openshifterlient.py`) and follow the instructions. You will be asked to provide:
-  - Source context
-  - Source namespace
-  - Source username and password
-  - Same thing for target
-  - The type of operation to perform (See notes)
+- Launch the client (`openshifterlient.py`) and follow the instructions. You will be asked to provide or select context information and the semantics of your migration (see notes)
 
 ## Notes:
 - Purposeful insecure design during prototyping phase
@@ -31,5 +27,8 @@ The implementation is based on OpenShift, hence the (slightly non-creative and t
   - delete on source
   - import to target
 - Copy operations would ommit the deletion step and a real move operation would delete only after import has been completed successfully.
-- Writing anything other than `testmove` as the operation type will result in a copy operation. This will most likely fail if source and target are the same instance.
-- Minishift causes the python client to crash. Use `testclient.sh` to test migrations to or from a minishift instance.
+- Selecting anything other than `testmove` as the operation type will result in a copy operation. **This will most likely fail if source and target are the same instance.**
+
+## Known Issues
+- Minishift causes the python client to crash. Until this can be fixed use `testclient.sh` to test migrations to or from a minishift instance.
+- Sometimes when migrating to the same instance as the source, the user has to trigger the build manually from the dashboard due to a permission issue. This does not affect minishift.

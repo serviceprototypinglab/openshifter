@@ -6,11 +6,13 @@ import openshiftercommon
 import refactor
 import requests
 import ssl
+import json
 
 
 def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, frompass, topass, sem):
     sslcontext = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH, cafile='domain_srv.crt')
-    r = urllib.request.urlopen("{}/export/{}/{}/{}/{}".format(endpoint, fromurl, fromproject, fromuser, frompass), context=sslcontext)
+    r = urllib.request.urlopen("{}/export/{}/{}/{}/{}".format(endpoint, fromurl, fromproject, fromuser, frompass),
+                               context=sslcontext)
     f = open("_output.tgz", "wb")
     f.write(base64.b64decode(r.read()))
     f.close()
@@ -24,7 +26,21 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     with open('_import.tgz', 'rb') as f:
         data = f.read()
     data = urllib.parse.quote(data)
-    requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data, verify="domain_srv.crt")
+    requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data,
+                  verify="domain_srv.crt")
+
+
+def specify():
+    with open("input.json", "r") as read_file:
+        data = json.load(read_file)
+    print("Available contexts:")
+    print(list(data["credentials"]))
+    choice = int(input("Your choice:"))
+    context = list(data["credentials"])[choice - 1]
+    return {'url': data["credentials"][context]["base"],
+            'project': data["credentials"][context]["project"],
+            'user': data["credentials"][context]["username"],
+            'pass': data["credentials"][context]["password"]}
 
 
 def menu():
@@ -42,23 +58,44 @@ def menu():
         for space in spaces[name]:
             print("* {} ({})".format(name, space))
 
-    fromurl = input("Migrate from source base URL/OpenShift name: ")
-    if "/" in fromurl:
-        fromproject, fromurl, fromuser = fromurl.split("/")
-        fromurl = fromurl.replace("-", ".")
+    print("You can specify source (1) from file or (2) manually")
+    mode = str(input("Your choice:"))
+    if mode == "1":
+        data = specify()
+        fromurl = data["url"]
+        fromproject = data["project"]
+        fromuser = data["user"]
+        frompass = data["pass"]
     else:
-        fromproject = input(" + source project (optional): ")
-        fromuser = input(" + source username: ")
-    frompass = input(" + source password: ")
-    tourl = input("Migrate to target base URL/OpenShift name: ")
-    if "/" in tourl:
-        toproject, tourl, touser = tourl.split("/")
-        tourl = tourl.replace("-", ".")
+        fromurl = input("Migrate from source base URL/OpenShift name: ")
+        if "/" in fromurl:
+            fromproject, fromurl, fromuser = fromurl.split("/")
+            fromurl = fromurl.replace("-", ".")
+        else:
+            fromproject = input(" + source project (optional): ")
+            fromuser = input(" + source username: ")
+        frompass = input(" + source password: ")
+
+    print("You can specify target (1) from file or (2) manually")
+    mode = str(input("Your choice:"))
+    if mode == "1":
+        data = specify()
+        tourl = data["url"]
+        toproject = data["project"]
+        touser = data["user"]
+        topass = data["pass"]
     else:
-        toproject = input(" + target project (optional): ")
-        touser = input(" + target username: ")
-    topass = input(" + target password: ")
-    sem = input("Semantics (copy/move): ")
+        tourl = input("Migrate to target base URL/OpenShift name: ")
+        if "/" in tourl:
+            toproject, tourl, touser = tourl.split("/")
+            tourl = tourl.replace("-", ".")
+        else:
+            toproject = input(" + target project (optional): ")
+            touser = input(" + target username: ")
+        topass = input(" + target password: ")
+    sem = input("Semantics (1) testmove: ")
+    if sem == "1":
+        sem = "testmove"
 
     try:
         migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, frompass, topass, sem)

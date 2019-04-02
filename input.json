@@ -1,0 +1,16 @@
+{
+	"credentials": {
+		"appuio": {
+			"base": "console.appuio.ch:443",
+			"project": "zhaw-devtest",
+			"username": "zhaw-pgkikopoulos1",
+			"password": "6693Tak!27414!3ur"
+		},
+		"minishift": {
+			"base": "192.168.99.100:8443",
+			"project": "myproject",
+			"username": "developer",
+			"password": "asdf"
+		}
+	}
+}
