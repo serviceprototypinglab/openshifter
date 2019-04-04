@@ -3,7 +3,7 @@ import base64
 import sys
 import subprocess
 import openshiftercommon
-import refactor
+#import refactor
 import requests
 import ssl
 import json
@@ -18,12 +18,12 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     f.close()
     r.close()
 
-    refactor.refactor(fromproject, toproject)
+    #refactor.refactor(fromproject, toproject)
     # Test-move operation for migrating back to the source
     # In order for this to work, deletion must precede import
     if sem == 'testmove':
-        subprocess.run("oc delete all --all", shell=True)
-    with open('_import.tgz', 'rb') as f:
+        requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), verify="domain_srv.crt")
+    with open('_output.tgz', 'rb') as f:
         data = f.read()
     data = urllib.parse.quote(data)
     requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data,

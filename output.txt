@@ -1,0 +1,256 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+  0  9804    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  9804  100  9804    0     0   2644      0  0:00:03  0:00:03 --:--:--  2644
+0.86user 0.19system 0:18.40elapsed 5%CPU (0avgtext+0avgdata 83476maxresident)k
+360inputs+1168outputs (4major+26468minor)pagefaults 0swaps
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0  9648    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  9648  100  9648    0     0   3087      0  0:00:03  0:00:03 --:--:--  3087
+0.93user 0.19system 0:29.51elapsed 3%CPU (0avgtext+0avgdata 82548maxresident)k
+0inputs+1168outputs (0major+26180minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0  9792    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  9792  100  9792    0     0   3123      0  0:00:03  0:00:03 --:--:--  3123
+0.94user 0.24system 0:27.95elapsed 4%CPU (0avgtext+0avgdata 82592maxresident)k
+2512inputs+1168outputs (13major+26493minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  9764  100  9764    0     0   3005      0  0:00:03  0:00:03 --:--:--  3005
+0.88user 0.17system 0:34.03elapsed 3%CPU (0avgtext+0avgdata 82988maxresident)k
+328inputs+1168outputs (4major+26276minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  9660  100  9660    0     0   2998      0  0:00:03  0:00:03 --:--:--  2998
+0.97user 0.18system 0:21.60elapsed 5%CPU (0avgtext+0avgdata 81704maxresident)k
+0inputs+1168outputs (0major+25894minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  9816  100  9816    0     0   3013      0  0:00:03  0:00:03 --:--:--  3013
+0.97user 0.23system 0:31.74elapsed 3%CPU (0avgtext+0avgdata 82204maxresident)k
+0inputs+1168outputs (0major+26075minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0  9776    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  9776  100  9776    0     0   3055      0  0:00:03  0:00:03 --:--:--  3056
+0.93user 0.20system 0:26.80elapsed 4%CPU (0avgtext+0avgdata 81384maxresident)k
+0inputs+1168outputs (0major+25766minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0  9756    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  9756  100  9756    0     0   3126      0  0:00:03  0:00:03 --:--:--  3126
+1.03user 0.22system 0:19.31elapsed 6%CPU (0avgtext+0avgdata 82264maxresident)k
+168inputs+1168outputs (1major+26203minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0  9800    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  9800  100  9800    0     0   3090      0  0:00:03  0:00:03 --:--:--  3090
+0.89user 0.19system 0:42.29elapsed 2%CPU (0avgtext+0avgdata 82280maxresident)k
+0inputs+1168outputs (0major+26189minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+100  9824  100  9824    0     0   2662      0  0:00:03  0:00:03 --:--:--  2663
+1.00user 0.19system 0:28.06elapsed 4%CPU (0avgtext+0avgdata 81936maxresident)k
+5016inputs+1168outputs (24major+26036minor)pagefaults 0swaps
+
+//////////////////////////////////////////////////////////////////////////////
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8904  100  8904    0     0   5509      0  0:00:01  0:00:01 --:--:--  5509
+0.59user 0.09system 0:21.69elapsed 3%CPU (0avgtext+0avgdata 81036maxresident)k
+104inputs+1120outputs (2major+25614minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0  8844    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8844  100  8844    0     0   4464      0  0:00:01  0:00:01 --:--:--  4462
+0.62user 0.09system 0:19.86elapsed 3%CPU (0avgtext+0avgdata 81012maxresident)k
+0inputs+1096outputs (0major+25683minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8848  100  8848    0     0   5550      0  0:00:01  0:00:01 --:--:--  5550
+0.63user 0.08system 0:23.45elapsed 3%CPU (0avgtext+0avgdata 81640maxresident)k
+0inputs+1096outputs (0major+25913minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8808  100  8808    0     0   5481      0  0:00:01  0:00:01 --:--:--  5477
+0.60user 0.09system 0:18.57elapsed 3%CPU (0avgtext+0avgdata 81032maxresident)k
+0inputs+1096outputs (0major+25653minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8832  100  8832    0     0   5596      0  0:00:01  0:00:01 --:--:--  5596
+0.62user 0.09system 0:16.27elapsed 4%CPU (0avgtext+0avgdata 81052maxresident)k
+408inputs+1096outputs (5major+25682minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0100  8844  100  8844    0     0   3904      0  0:00:02  0:00:02 --:--:--  3902
+0.63user 0.07system 0:22.65elapsed 3%CPU (0avgtext+0avgdata 80532maxresident)k
+112inputs+1096outputs (1major+25823minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0  8836    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0100  8836  100  8836    0     0   4354      0  0:00:02  0:00:02 --:--:--  4354
+0.60user 0.08system 0:20.98elapsed 3%CPU (0avgtext+0avgdata 81700maxresident)k
+0inputs+1096outputs (0major+25848minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8872  100  8872    0     0   5493      0  0:00:01  0:00:01 --:--:--  5490
+0.88user 0.12system 0:19.74elapsed 5%CPU (0avgtext+0avgdata 81476maxresident)k
+344inputs+1440outputs (1major+36923minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8852  100  8852    0     0   5491      0  0:00:01  0:00:01 --:--:--  5491
+0.59user 0.10system 0:29.48elapsed 2%CPU (0avgtext+0avgdata 81604maxresident)k
+0inputs+1096outputs (0major+25713minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8836  100  8836    0     0   5447      0  0:00:01  0:00:01 --:--:--  5444
+0.61user 0.09system 0:27.16elapsed 2%CPU (0avgtext+0avgdata 81420maxresident)k
+0inputs+1096outputs (0major+25575minor)pagefaults 0swaps
+////////////////////////////////////////////////////////////////////////////////
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8860  100  8860    0     0   5672      0  0:00:01  0:00:01 --:--:--  5668
+0.58user 0.12system 0:25.98elapsed 2%CPU (0avgtext+0avgdata 81264maxresident)k
+720inputs+1104outputs (3major+25902minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0100  9624  100  9624    0     0   2958      0  0:00:03  0:00:03 --:--:--  2959
+0.90user 0.23system 0:27.59elapsed 4%CPU (0avgtext+0avgdata 82760maxresident)k
+256inputs+1168outputs (1major+26166minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0  8976    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8976  100  8976    0     0   5866      0  0:00:01  0:00:01 --:--:--  5862
+0.57user 0.10system 0:11.08elapsed 6%CPU (0avgtext+0avgdata 80892maxresident)k
+0inputs+1120outputs (0major+25685minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0  9848    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0100  9848  100  9848    0     0   3120      0  0:00:03  0:00:03 --:--:--  3120
+0.91user 0.18system 0:23.13elapsed 4%CPU (0avgtext+0avgdata 84124maxresident)k
+0inputs+1168outputs (0major+26900minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8988  100  8988    0     0   5806      0  0:00:01  0:00:01 --:--:--  5802
+0.61user 0.09system 0:20.79elapsed 3%CPU (0avgtext+0avgdata 81388maxresident)k
+0inputs+1120outputs (0major+25453minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0  9756    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0100  9756  100  9756    0     0   3176      0  0:00:03  0:00:03 --:--:--  3176
+0.89user 0.16system 0:22.75elapsed 4%CPU (0avgtext+0avgdata 83304maxresident)k
+0inputs+1176outputs (0major+26396minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8968  100  8968    0     0   5939      0  0:00:01  0:00:01 --:--:--  5935
+0.58user 0.11system 0:18.46elapsed 3%CPU (0avgtext+0avgdata 80828maxresident)k
+0inputs+1120outputs (0major+25663minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0  9744    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0100  9744  100  9744    0     0   3075      0  0:00:03  0:00:03 --:--:--  3074
+0.97user 0.16system 0:20.23elapsed 5%CPU (0avgtext+0avgdata 81980maxresident)k
+0inputs+1168outputs (0major+26225minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8988  100  8988    0     0   5870      0  0:00:01  0:00:01 --:--:--  5866
+0.60user 0.07system 0:18.90elapsed 3%CPU (0avgtext+0avgdata 81408maxresident)k
+0inputs+1120outputs (0major+25826minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0100  9768  100  9768    0     0   3039      0  0:00:03  0:00:03 --:--:--  3039
+0.95user 0.18system 0:26.58elapsed 4%CPU (0avgtext+0avgdata 81424maxresident)k
+0inputs+1168outputs (0major+25849minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0  8968    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8968  100  8968    0     0   4803      0  0:00:01  0:00:01 --:--:--  4800
+0.54user 0.13system 0:21.62elapsed 3%CPU (0avgtext+0avgdata 81520maxresident)k
+0inputs+1120outputs (0major+25788minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0  9784    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0100  9784  100  9784    0     0   3308      0  0:00:02  0:00:02 --:--:--  3307
+0.86user 0.20system 0:27.17elapsed 3%CPU (0avgtext+0avgdata 82072maxresident)k
+0inputs+1176outputs (0major+26345minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8972  100  8972    0     0   5740      0  0:00:01  0:00:01 --:--:--  5740
+0.56user 0.11system 0:19.39elapsed 3%CPU (0avgtext+0avgdata 81556maxresident)k
+0inputs+1120outputs (0major+25611minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0  9844    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0100  9844  100  9844    0     0   3340      0  0:00:02  0:00:02 --:--:--  3339
+0.82user 0.15system 0:23.33elapsed 4%CPU (0avgtext+0avgdata 82424maxresident)k
+0inputs+1168outputs (0major+26383minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0  8964    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8964  100  8964    0     0   4947      0  0:00:01  0:00:01 --:--:--  4944
+0.60user 0.12system 0:34.57elapsed 2%CPU (0avgtext+0avgdata 81024maxresident)k
+1672inputs+1120outputs (9major+25112minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0100  9800  100  9800    0     0   2795      0  0:00:03  0:00:03 --:--:--  2795
+0.92user 0.21system 0:28.82elapsed 3%CPU (0avgtext+0avgdata 82708maxresident)k
+0inputs+1168outputs (0major+26225minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0  8976    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8976  100  8976    0     0   5381      0  0:00:01  0:00:01 --:--:--  5378
+0.59user 0.12system 0:23.45elapsed 3%CPU (0avgtext+0avgdata 81376maxresident)k
+0inputs+1120outputs (0major+25619minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0100  9836  100  9836    0     0   2982      0  0:00:03  0:00:03 --:--:--  2982
+0.91user 0.18system 0:31.33elapsed 3%CPU (0avgtext+0avgdata 82732maxresident)k
+0inputs+1168outputs (0major+26195minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0100  8964  100  8964    0     0   5828      0  0:00:01  0:00:01 --:--:--  5828
+0.59user 0.11system 0:21.27elapsed 3%CPU (0avgtext+0avgdata 80804maxresident)k
+0inputs+1120outputs (0major+25416minor)pagefaults 0swaps
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0  9408    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0100  9408  100  9408    0     0   2940      0  0:00:03  0:00:03 --:--:--  2940
+0.80user 0.19system 0:19.47elapsed 5%CPU (0avgtext+0avgdata 82092maxresident)k
+0inputs+1120outputs (0major+26308minor)pagefaults 0swaps
