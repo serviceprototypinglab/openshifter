@@ -19,13 +19,13 @@ curl -k https://localhost:8443/delete/console.appuio.ch:443/zhaw-devtest/zhaw-pg
 #while true; do echo -n .; status=`oc get all 2>&1`; if [ "$status" = "No resources found." ]; then break; fi; sleep 1; done; echo
 #Import to minishift:
 #python3 refactor.py zhaw-devtest myproject
-curl -k -X POST --data-urlencode @_output.tgz https://localhost:8443/import/192.168.99.101:8443/myproject/developer/asdf
+#curl -k -X POST --data-urlencode @_output.tgz https://localhost:8443/import/192.168.99.101:8443/myproject/developer/asdf
 #Minishift to minishift:
 #python3 refactor.py myproject myproject
 #curl -k -X POST --data-urlencode @_output.tgz https://localhost:8443/import/192.168.99.101:8443/myproject/developer/asdf
 #Import to APPUiO:
 #python3 refactor.py myproject zhaw-devtest
-#curl -k -X POST --data-urlencode @_output.tgz https://localhost:8443/import/console.appuio.ch:443/zhaw-devtest/zhaw-pgkikopoulos1/6693Tak!27414!3ur
+curl -k -X POST --data-urlencode @_output.tgz https://localhost:8443/import/console.appuio.ch:443/zhaw-devtest/zhaw-pgkikopoulos1/6693Tak!27414!3ur
 #APPUiO to APPUiO:
 #python3 refactor.py zhaw-devtest zhaw-devtest
 #curl -k -X POST --data-urlencode @_output.tgz https://localhost:8443/import/console.appuio.ch:443/zhaw-devtest/zhaw-pgkikopoulos1/6693Tak!27414!3ur

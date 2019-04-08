@@ -10,6 +10,7 @@ import makehelmchart
 import openshiftercommon
 import ssl
 import newrefactor
+import test
 
 OC = openshiftercommon.OC
 
@@ -109,7 +110,8 @@ def oc_import(data,space):
 		tf.extractall(volumefolder)
 		tf.close()
 
-	newrefactor.refactor("{}/templates/descriptor.json".format(firstfolder), space)
+	#newrefactor.refactor("{}/templates/descriptor.json".format(firstfolder), space)
+	test.refactor("{}/templates/descriptor.json".format(firstfolder), space)
 	subprocess.run("{} create -f {}/templates/descriptor.json".format(OC, firstfolder), shell=True)
 
 	volumes = oc_volumes(open("{}/templates/descriptor.json".format(firstfolder)).read())
