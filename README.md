@@ -30,5 +30,4 @@ The implementation is based on OpenShift, hence the (slightly non-creative and t
 - Selecting anything other than `testmove` as the operation type will result in a copy operation. **This will most likely fail if source and target are the same instance.**
 
 ## Known Issues
-- Minishift causes the python client to crash. Until this can be fixed use `testclient.sh` to test migrations to or from a minishift instance.
 - Sometimes when migrating to the same instance as the source, the user has to trigger the build manually from the dashboard due to a permission issue. This does not affect minishift.

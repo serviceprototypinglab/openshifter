@@ -22,7 +22,7 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     # Test-move operation for migrating back to the source
     # In order for this to work, deletion must precede import
     if sem == 'testmove':
-        requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), verify="domain_srv.crt")
+        requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, fromurl, fromproject, fromuser, frompass), verify="domain_srv.crt")
     with open('_output.tgz', 'rb') as f:
         data = f.read()
     data = urllib.parse.quote(data)
@@ -55,8 +55,9 @@ def menu():
 
     print("OpenShift names:")
     for name in names:
-        for space in spaces[name]:
-            print("* {} ({})".format(name, space))
+        if name in spaces:
+            for space in spaces[name]:
+                print("* {} ({})".format(name, space))
 
     print("You can specify source (1) from file or (2) manually")
     mode = str(input("Your choice:"))
