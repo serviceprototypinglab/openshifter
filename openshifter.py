@@ -16,7 +16,7 @@ OC = openshiftercommon.OC
 
 
 def oc_delete(context, space, username, password):
-	p = subprocess.run("{} login {} --username={} --password={}".format(OC, context, username, password), shell=True)
+	p = subprocess.run("{} login {} --username={} --password={} --insecure-skip-tls-verify".format(OC, context, username, password), shell=True)
 	if p.returncode != 0:
 		return
 	p = subprocess.run("{} project {}".format(OC, space), shell=True)
@@ -29,7 +29,7 @@ def oc_delete(context, space, username, password):
 
 
 def oc_switch(context, space, username, password):
-	p = subprocess.run("{} login {} --username={} --password={}".format(OC, context, username, password), shell=True)
+	p = subprocess.run("{} login {} --username={} --password={} --insecure-skip-tls-verify".format(OC, context, username, password), shell=True)
 	if p.returncode != 0:
 		return
 	p = subprocess.run("{} project {}".format(OC, space), shell=True)
@@ -40,7 +40,7 @@ def oc_switch(context, space, username, password):
 
 def oc_descriptor(context, space, username, password):
 	# p = subprocess.run("{} config use-context {}".format(OC, context), shell=True)
-	p = subprocess.run("{} login {} --username={} --password={}".format(OC, context, username, password), shell=True)
+	p = subprocess.run("{} login {} --username={} --password={} --insecure-skip-tls-verify".format(OC, context, username, password), shell=True)
 	if p.returncode != 0:
 		return
 	p = subprocess.run("{} project {}".format(OC, space), shell=True)

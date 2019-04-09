@@ -13,6 +13,8 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     sslcontext = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH, cafile='domain_srv.crt')
     r = urllib.request.urlopen("{}/export/{}/{}/{}/{}".format(endpoint, fromurl, fromproject, fromuser, frompass),
                                context=sslcontext)
+    #print(r.read())
+
     f = open("_output.tgz", "wb")
     f.write(base64.b64decode(r.read()))
     f.close()
@@ -23,12 +25,15 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     # In order for this to work, deletion must precede import
     if sem == 'testmove':
         requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, fromurl, fromproject, fromuser, frompass), verify="domain_srv.crt")
+    elif sem == 'fasttestmove':
+        requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), verify="domain_srv.crt")
+
     with open('_output.tgz', 'rb') as f:
         data = f.read()
     data = urllib.parse.quote(data)
     requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data,
                   verify="domain_srv.crt")
-
+    
 
 def specify():
     with open("input.json", "r") as read_file:
@@ -94,9 +99,11 @@ def menu():
             toproject = input(" + target project (optional): ")
             touser = input(" + target username: ")
         topass = input(" + target password: ")
-    sem = input("Semantics (1) testmove: ")
+    sem = input("Semantics (1) testmove (2) fasttestmove: ")
     if sem == "1":
         sem = "testmove"
+    elif sem == "2":
+        sem = "fasttestmove"
 
     try:
         migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, frompass, topass, sem)
