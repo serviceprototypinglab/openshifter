@@ -9,12 +9,27 @@ import glob
 import makehelmchart
 import openshiftercommon
 import ssl
+import newrefactor
+import test
 
 OC = openshiftercommon.OC
 
 
+def oc_delete(context, space, username, password):
+	p = subprocess.run("{} login {} --username={} --password={} --insecure-skip-tls-verify".format(OC, context, username, password), shell=True)
+	if p.returncode != 0:
+		return
+	p = subprocess.run("{} project {}".format(OC, space), shell=True)
+	if p.returncode != 0:
+		return
+	p = subprocess.run("oc delete all --all", shell=True)
+	if p.returncode != 0:
+		return
+	return "It's all gone"
+
+
 def oc_switch(context, space, username, password):
-	p = subprocess.run("{} login {} --username={} --password={}".format(OC, context, username, password), shell=True)
+	p = subprocess.run("{} login {} --username={} --password={} --insecure-skip-tls-verify".format(OC, context, username, password), shell=True)
 	if p.returncode != 0:
 		return
 	p = subprocess.run("{} project {}".format(OC, space), shell=True)
@@ -25,7 +40,7 @@ def oc_switch(context, space, username, password):
 
 def oc_descriptor(context, space, username, password):
 	# p = subprocess.run("{} config use-context {}".format(OC, context), shell=True)
-	p = subprocess.run("{} login {} --username={} --password={}".format(OC, context, username, password), shell=True)
+	p = subprocess.run("{} login {} --username={} --password={} --insecure-skip-tls-verify".format(OC, context, username, password), shell=True)
 	if p.returncode != 0:
 		return
 	p = subprocess.run("{} project {}".format(OC, space), shell=True)
@@ -74,7 +89,7 @@ def oc_export(json_descriptor, volumes, context, space):
 	return base64.b64encode(open(chart, "rb").read()).decode("utf-8")
 
 
-def oc_import(data):
+def oc_import(data,space):
 	tfname = "_upload_tmp.tgz"
 	tffolder = tfname + ".unpack"
 
@@ -95,6 +110,8 @@ def oc_import(data):
 		tf.extractall(volumefolder)
 		tf.close()
 
+	#newrefactor.refactor("{}/templates/descriptor.json".format(firstfolder), space)
+	test.refactor("{}/templates/descriptor.json".format(firstfolder), space)
 	subprocess.run("{} create -f {}/templates/descriptor.json".format(OC, firstfolder), shell=True)
 
 	volumes = oc_volumes(open("{}/templates/descriptor.json".format(firstfolder)).read())
@@ -141,6 +158,15 @@ async def api_export(request):
 	return web.Response(text=ret)
 
 
+async def api_delete(request):
+	ctx = request.match_info["context"]
+	space = request.match_info["space"]
+	username = request.match_info["user"]
+	password = request.match_info["pass"]
+	ret = oc_delete(ctx, space, username, password)
+	return web.Response(text=ret)
+
+
 async def api_import(request):
 	ctx = request.match_info["context"]
 	space = request.match_info["space"]
@@ -157,7 +183,7 @@ async def api_import(request):
 	# data = bytes(data, "utf-8").decode("unicode_escape")
 	# data = urllib.parse.unquote_to_bytes(data)
 
-	ret = oc_import(data)
+	ret = oc_import(data,space)
 	return web.Response(text=ret)
 
 app = web.Application()
@@ -167,7 +193,8 @@ app.add_routes([
 	web.get("/descriptor/{context}/{space}/{user}/{pass}", api_descriptor),
 	web.get("/volumes/{context}/{space}/{user}/{pass}", api_volumes),
 	web.get("/export/{context}/{space}/{user}/{pass}", api_export),
-	web.post("/import/{context}/{space}/{user}/{pass}", api_import)
+	web.post("/import/{context}/{space}/{user}/{pass}", api_import),
+	web.get("/delete/{context}/{space}/{user}/{pass}", api_delete)
 ])
 
 ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)

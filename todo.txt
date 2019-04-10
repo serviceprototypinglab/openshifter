@@ -1,3 +1,16 @@
-automate file input
-check why build does not trigger (try delay)
-check saving half the creds server-side
+~review and push to github
+~screencast and blogpost
+~documentation
+-python oc client library
+-dockerize
+-preconfiguaration
+#connection to appsizer
++fix build and client crash on minishift
+
+needed client capabilities:
+login
+change projects
+delete
+get all json
+rsync
+create
