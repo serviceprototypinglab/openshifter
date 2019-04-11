@@ -22,7 +22,7 @@ The implementation is based on OpenShift, hence the (slightly non-creative and t
 #### Setup Docker version (very early prototype):
 - Run the container (Same cert issue as above except you don't have to generate them):
 ```
-docker run -d -p 8443:8443 panosece/openshifter:v7
+docker run -d -p 8443:8443 panosece/openshifter:v8
 ```
 
 ## Usage :
