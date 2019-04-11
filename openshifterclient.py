@@ -2,19 +2,21 @@ import urllib
 import base64
 import sys
 import subprocess
-import openshiftercommon
+#import openshiftercommon
 #import refactor
 import requests
-import ssl
+#import ssl
 import json
 
 
 def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, frompass, topass, sem):
+    """
     sslcontext = ssl.create_default_context(purpose=ssl.Purpose.SERVER_AUTH, cafile='domain_srv.crt')
     r = urllib.request.urlopen("{}/export/{}/{}/{}/{}".format(endpoint, fromurl, fromproject, fromuser, frompass),
                                context=sslcontext)
     #print(r.read())
-
+    """
+    r = urllib.request.urlopen("{}/export/{}/{}/{}/{}".format(endpoint, fromurl, fromproject, fromuser, frompass))
     f = open("_output.tgz", "wb")
     f.write(base64.b64decode(r.read()))
     f.close()
@@ -24,16 +26,19 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     # Test-move operation for migrating back to the source
     # In order for this to work, deletion must precede import
     if sem == 'testmove':
-        requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, fromurl, fromproject, fromuser, frompass), verify="domain_srv.crt")
+        #requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, fromurl, fromproject, fromuser, frompass), verify="domain_srv.crt")
+        requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, fromurl, fromproject, fromuser, frompass))
     elif sem == 'fasttestmove':
-        requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), verify="domain_srv.crt")
-
+        #requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), verify="domain_srv.crt")
+        requests.get('{}/delete/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass))
     with open('_output.tgz', 'rb') as f:
         data = f.read()
     data = urllib.parse.quote(data)
+    """
     requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data,
                   verify="domain_srv.crt")
-    
+    """
+    requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data)
 
 def specify():
     with open("input.json", "r") as read_file:
@@ -49,12 +54,12 @@ def specify():
 
 
 def menu():
-    endpoint = "https://0.0.0.0:8443"
+    endpoint = "http://0.0.0.0:8080"
     if len(sys.argv) == 2:
         endpoint = sys.argv[1]
 
     print("OpenShifter - application migration between OpenShift instances")
-
+    """
     names = openshiftercommon.oc_getcontexts()
     spaces = openshiftercommon.oc_getprojects(names)
 
@@ -63,7 +68,7 @@ def menu():
         if name in spaces:
             for space in spaces[name]:
                 print("* {} ({})".format(name, space))
-
+    """
     print("You can specify source (1) from file or (2) manually")
     mode = str(input("Your choice:"))
     if mode == "1":
@@ -99,7 +104,7 @@ def menu():
             toproject = input(" + target project (optional): ")
             touser = input(" + target username: ")
         topass = input(" + target password: ")
-    sem = input("Semantics (1) testmove (2) fasttestmove: ")
+    sem = input("Semantics (1) Move (2) Ping-Pong (3) Copy: ")
     if sem == "1":
         sem = "testmove"
     elif sem == "2":

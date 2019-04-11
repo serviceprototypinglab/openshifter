@@ -8,9 +8,9 @@ import tarfile
 import glob
 import makehelmchart
 import openshiftercommon
-import ssl
-import newrefactor
-import test
+#import ssl
+#import newrefactor
+import filter
 
 OC = openshiftercommon.OC
 
@@ -111,7 +111,7 @@ def oc_import(data,space):
 		tf.close()
 
 	#newrefactor.refactor("{}/templates/descriptor.json".format(firstfolder), space)
-	test.refactor("{}/templates/descriptor.json".format(firstfolder), space)
+	filter.refactor("{}/templates/descriptor.json".format(firstfolder), space)
 	subprocess.run("{} create -f {}/templates/descriptor.json".format(OC, firstfolder), shell=True)
 
 	volumes = oc_volumes(open("{}/templates/descriptor.json".format(firstfolder)).read())
@@ -197,6 +197,7 @@ app.add_routes([
 	web.get("/delete/{context}/{space}/{user}/{pass}", api_delete)
 ])
 
-ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-ssl_context.load_cert_chain('domain_srv.crt', 'domain_srv.key')
-web.run_app(app, ssl_context=ssl_context)
+#ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+#ssl_context.load_cert_chain('domain_srv.crt', 'domain_srv.key')
+#web.run_app(app, ssl_context=ssl_context)
+web.run_app(app)
