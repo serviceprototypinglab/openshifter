@@ -6,8 +6,8 @@ The implementation is based on OpenShift, hence the (slightly non-creative and t
 ## Installation:
 #### Prerequisites (local install):
 - python3
-- pip3
-- openssl
+- python3-pip
+- The Openshift CLI
 
 #### Prerequisites (Docker version):
 - docker
@@ -15,14 +15,12 @@ The implementation is based on OpenShift, hence the (slightly non-creative and t
 #### Setup (local install):
 - Clone this repo
 
-- Run `install.sh`
+- Run `pip install -r requirements.txt`
 
-(The certs generated are self signed so they have to be trusted manually the first time.)
-
-#### Setup Docker version (very early prototype):
-- Run the container (Same cert issue as above except you don't have to generate them):
+#### Setup with Docker:
+- Run the container:
 ```
-docker run -d -p 8443:8443 panosece/openshifter:v8
+docker run -d -p 8080:8080 panosece/openshifter:v9
 ```
 
 ## Usage :
@@ -47,8 +45,20 @@ Supported operations for the interactive client:
   - Exports from source
   - Imports to target
 
-It should also be noted that since openshifter is a RESTful service you can also send HTTP requests independently from the client.
-
+It should also be noted that since openshifter is a RESTful service you can also send HTTP requests independently from the client:
+- Export and package:
+```
+curl http://localhost:8080/export/<baseurl>/<project>/<user>/<pass> > _output
+base64 -d < _output > _output.tgz
+```
+- Delete:
+```
+curl http://localhost:8080/delete/<baseurl>/<project>/<user>/<pass>
+```
+- Import:
+```
+curl -X POST --data-urlencode @_output.tgz http://localhost:8080/import/<baseurl>/<project>/<user>/<pass>
+```
 ## Known Issues
 - Sometimes when migrating to the same instance as the source, the user has to trigger the build manually from the dashboard due to a permission issue.
 - Due to minishift's security limitations, the server makes insecure requests to the clusters. Removing this vulnerability would make openshifter incompatible with minishift.

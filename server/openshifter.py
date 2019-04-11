@@ -8,7 +8,7 @@ import tarfile
 import glob
 import makehelmchart
 import openshiftercommon
-import ssl
+#import ssl
 #import newrefactor
 import filter
 
@@ -197,7 +197,7 @@ app.add_routes([
 	web.get("/delete/{context}/{space}/{user}/{pass}", api_delete)
 ])
 
-ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-ssl_context.load_cert_chain('domain_srv.crt', 'domain_srv.key')
-web.run_app(app, ssl_context=ssl_context)
-#web.run_app(app)
+#ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+#ssl_context.load_cert_chain('domain_srv.crt', 'domain_srv.key')
+#web.run_app(app, ssl_context=ssl_context)
+web.run_app(app)
