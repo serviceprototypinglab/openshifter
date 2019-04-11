@@ -22,7 +22,7 @@ The implementation is based on OpenShift, hence the (slightly non-creative and t
 #### Setup Docker version (very early prototype):
 - Run the container (Same cert issue as above except you don't have to generate them):
 ```
-docker run -d -p 8443:8443 panosece/openshifter
+docker run -d -p 8443:8443 panosece/openshifter:v7
 ```
 
 ## Usage :
@@ -35,15 +35,15 @@ docker run -d -p 8443:8443 panosece/openshifter
 
 ## Notes:
 Supported operations for the interactive client:
-- **testmove**: Useful for *in place* migrations (source and target are the same) where import would be impossible without deleting first.
+- **Move**: Useful for *in place* migrations (source and target are the same) where import would be impossible without deleting first.
   - Exports from source
   - Deletes from source
   - Imports to target
-- **fasttestmove**: Useful for *round-trip* (from source to target then back to source) or repeated migrations since in the end both instances have a copy of the application.
+- **Ping-Pong**: Useful for *round-trip* (from source to target then back to source) or repeated migrations since in the end both instances have a copy of the application.
   - Exports from source
   - Deletes from target
   - Imports to target
-- **copy**: Useful for migrations where deletion should not be triggered automatically or at all.
+- **Copy**: Useful for migrations where deletion should not be triggered automatically or at all.
   - Exports from source
   - Imports to target
 

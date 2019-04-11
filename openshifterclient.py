@@ -33,7 +33,7 @@ def migrate(endpoint, fromurl, tourl, fromproject, toproject, fromuser, touser, 
     data = urllib.parse.quote(data)
     requests.post('{}/import/{}/{}/{}/{}'.format(endpoint, tourl, toproject, touser, topass), data=data,
                   verify="domain_srv.crt")
-    
+
 
 def specify():
     with open("input.json", "r") as read_file:
@@ -99,7 +99,7 @@ def menu():
             toproject = input(" + target project (optional): ")
             touser = input(" + target username: ")
         topass = input(" + target password: ")
-    sem = input("Semantics (1) testmove (2) fasttestmove: ")
+    sem = input("Semantics (1) Move (2) Ping-Pong (3) Copy: ")
     if sem == "1":
         sem = "testmove"
     elif sem == "2":

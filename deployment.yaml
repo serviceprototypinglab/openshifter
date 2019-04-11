@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openshifter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openshifter
+  template:
+    metadata:
+      labels:
+        app: openshifter
+    spec:
+      containers:
+        - name: openshifter
+          image: "docker.io/panosece/openshifter:v4"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
