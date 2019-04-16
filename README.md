@@ -1,7 +1,7 @@
 # Openshifter
-is an experimental design study to figure out how microservice-based applications can and should be migrated in various forms.
-
-The implementation is based on OpenShift, hence the (slightly non-creative and trademark-offensive) name.
+is an experimental design study to figure out how microservice-based applications can and should be migrated in various forms.  
+The implementation is based on OpenShift, hence the (slightly non-creative and trademark-offensive) name.  
+More info: [Blog post](https://blog.zhaw.ch/splab/2019/04/15/openshifter-migrating-applications-between-openshift-instances/)
 
 ## Installation:
 #### Prerequisites (local install):
